@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bridges to Success: CRF & SAGL Initiative</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        sudanBlue: '#1e3a8a',
+                        sudanGold: '#d97706',
+                        sudanTeal: '#0f766e',
+                        sudanSlate: '#1e293b'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #1e3a8a 0%, #0f766e 100%);
+        }
+        .stamp-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .stamp-card:hover {
+            transform: translateY(-4px);
+        }
+        .stamp-glow {
+            filter: drop-shadow(0 0 8px rgba(217, 119, 6, 0.6));
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans min-h-screen flex flex-col antialiased">
+
+    <!-- Header / Branding -->
+    <header class="bg-white border-b border-slate-200 sticky top-0 z-40 shadow-sm transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Dual Logos -->
+                <div class="flex items-center space-x-3 sm:space-x-4">
+                    <div class="flex items-center justify-center w-12 h-12 rounded-xl bg-blue-900 text-white shadow-md">
+                        <i class="fa-solid fa-graduation-cap text-xl"></i>
+                    </div>
+                    <div class="border-r border-slate-300 h-8 hidden sm:block"></div>
+                    <div>
+                        <h1 class="text-xs sm:text-sm font-bold text-slate-900 tracking-wide uppercase" id="brand-crf">The Combined Research Foundation</h1>
+                        <p class="text-[10px] sm:text-xs text-slate-500 font-semibold" id="brand-sagl">Sudanese Association of Greater Lansing (SAGL)</p>
+                    </div>
+                </div>
+                
+                <!-- Action Controls -->
+                <div class="flex items-center space-x-3">
+                    <!-- Arabic Toggle -->
+                    <button id="lang-toggle" onclick="toggleLanguage()" class="px-3 py-1.5 text-xs sm:text-sm font-semibold text-amber-700 bg-amber-50 rounded-lg hover:bg-amber-100 transition border border-amber-200 flex items-center gap-1.5">
+                        <i class="fa-solid fa-globe"></i>
+                        <span id="lang-btn-text">العربية</span>
+                    </button>
+                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-100 text-emerald-800">
+                        <span class="w-1.5 h-1.5 mr-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                        501(c)(3) Fiscal Agent
+                    </span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Showcase Section -->
+    <section class="gradient-bg text-white py-12 md:py-16 px-4 relative overflow-hidden shadow-inner">
+        <!-- Abstract Patterns -->
+        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px]"></div>
+        
+        <div class="max-w-5xl mx-auto text-center relative z-10">
+            <span class="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-white/20 text-amber-200 uppercase tracking-widest mb-4" id="hero-badge">Joint Summer Pipeline 2026</span>
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight mb-4 leading-tight" id="hero-title">
+                Bridges to Success: Higher Education & Career Pipelines
+            </h2>
+            <p class="text-base sm:text-lg md:text-xl text-blue-100 max-w-3xl mx-auto font-light leading-relaxed mb-8" id="hero-subtitle">
+                An educational and professional pathway framework custom-tailored for Lansing high school students, graduates, and immigrant families.
+            </p>
+            
+            <!-- Quick Date Anchors -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-2xl mx-auto mt-6">
+                <div class="bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/10 flex items-center space-x-4 text-left">
+                    <div class="w-10 h-10 rounded-lg bg-amber-500 flex items-center justify-center text-white text-lg shrink-0">
+                        <i class="fa-solid fa-laptop"></i>
+                    </div>
+                    <div>
+                        <p class="text-xs text-amber-200 font-semibold" id="hero-date1-label">Event 1: Virtual Webinar</p>
+                        <h4 class="font-bold text-sm sm:text-base" id="hero-date1-title">Saturday, July 11, 2026</h4>
+                    </div>
+                </div>
+                <div class="bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/10 flex items-center space-x-4 text-left">
+                    <div class="w-10 h-10 rounded-lg bg-teal-500 flex items-center justify-center text-white text-lg shrink-0">
+                        <i class="fa-solid fa-people-carry-box"></i>
+                    </div>
+                    <div>
+                        <p class="text-xs text-teal-200 font-semibold" id="hero-date2-label">Event 2: In-Person Workshop</p>
+                        <h4 class="font-bold text-sm sm:text-base" id="hero-date2-title">Saturday, July 25, 2026</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tab Navigation Bar -->
+    <div class="bg-white border-b border-slate-200 sticky top-20 z-30 shadow-sm">
+        <div class="max-w-4xl mx-auto px-4">
+            <nav class="flex space-x-8 justify-center" aria-label="Tabs">
+                <button onclick="switchTab('webinar-tab')" id="webinar-tab-btn" class="border-b-4 border-blue-600 text-blue-600 px-1 py-4 text-sm font-bold flex items-center gap-2 transition duration-150">
+                    <i class="fa-solid fa-video"></i>
+                    <span id="tab1-name">1. Scholarship & Funding Webinar</span>
+                </button>
+                <button onclick="switchTab('seminar-tab')" id="seminar-tab-btn" class="border-b-4 border-transparent text-slate-500 hover:text-slate-700 hover:border-slate-300 px-1 py-4 text-sm font-medium flex items-center gap-2 transition duration-150">
+                    <i class="fa-solid fa-user-tie"></i>
+                    <span id="tab2-name">2. In-Person Career Seminar</span>
+                </button>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Main Dynamic Content Wrapper -->
+    <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full">
+        
+        <!-- ============================================== -->
+        <!-- TAB 1: WEBINAR CONTENT (JULY 11) -->
+        <!-- ============================================== -->
+        <div id="webinar-tab" class="space-y-12">
+            
+            <!-- Quick Event Flyer & Meta Info -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                <div class="lg:col-span-7 space-y-6">
+                    <div class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-100">
+                        <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-blue-50 text-blue-700 mb-4 uppercase tracking-wider">
+                            <i class="fa-solid fa-circle-info mr-1.5"></i> Webinar Overview
+                        </span>
+                        <h3 class="text-2xl font-bold text-slate-900 mb-4" id="webinar-header-title">Unlocking Free Tuition & Navigating FAFSA</h3>
+                        <p class="text-slate-600 leading-relaxed mb-6" id="webinar-desc">
+                            Navigating the American college billing system can be challenging. This targeted, bilingual session is designed specifically for newly graduated high school seniors (Class of 2026), incoming juniors, and parents looking to demystify FAFSA systems and claim state-wide grants.
+                        </p>
+                        
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 border-t border-slate-100 pt-6">
+                            <div class="flex items-start space-x-3">
+                                <div class="text-blue-600 text-lg mt-0.5"><i class="fa-solid fa-clock"></i></div>
+                                <div>
+                                    <h5 class="font-bold text-slate-900" id="webinar-time-lbl">Time & Format</h5>
+                                    <p class="text-xs text-slate-500">6:30 PM - 8:00 PM EST</p>
+                                    <p class="text-xs text-slate-500">Live Zoom Broadcast</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <div class="text-amber-600 text-lg mt-0.5"><i class="fa-solid fa-gift"></i></div>
+                                <div>
+                                    <h5 class="font-bold text-slate-900" id="webinar-perks-lbl">Attendee Perks</h5>
+                                    <p class="text-xs text-slate-500">1-Page Funding Cheat Sheet PDF</p>
+                                    <p class="text-xs text-slate-500">Post-Event Mentorship Match</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Interactive Cost Estimator Widget -->
+                    <div class="bg-white rounded-2xl p-6 md:p-8 shadow-md border border-slate-200 relative overflow-hidden">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-amber-500/5 rounded-full -mr-10 -mt-10"></div>
+                        <h3 class="text-xl font-bold text-slate-900 flex items-center gap-2 mb-2">
+                            <i class="fa-solid fa-calculator text-amber-500"></i>
+                            <span id="calc-title">Interactive College Cost & Funding Estimator</span>
+                        </h3>
+                        <p class="text-xs text-slate-500 mb-6" id="calc-desc">Calculate how state and federal grants pile up to reduce high tuition costs in Michigan.</p>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <!-- Input Column -->
+                            <div class="space-y-4">
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2" id="calc-label-path">1. Select Higher Ed Path</label>
+                                    <select id="estimator-path" onchange="calculateCost()" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-white transition">
+                                        <option value="4000">Community College (e.g., LCC) — $4,000/yr</option>
+                                        <option value="15000" selected>In-State Public University (e.g., MSU) — $15,000/yr</option>
+                                        <option value="35000">Private Nonprofit College — $35,000/yr</option>
+                                    </select>
+                                </div>
+
+                                <div>
+                                    <div class="flex justify-between items-center mb-1">
+                                        <label class="text-xs font-bold text-slate-700 uppercase tracking-wider" id="calc-label-pell">2. Federal Pell Grant</label>
+                                        <span class="text-xs font-bold text-blue-600" id="pell-val-display">$3,500</span>
+                                    </div>
+                                    <input type="range" id="estimator-pell" min="0" max="7395" step="100" value="3500" oninput="calculateCost()" class="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-blue-600">
+                                    <div class="flex justify-between text-[10px] text-slate-400">
+                                        <span>$0</span>
+                                        <span>Max: $7,395</span>
+                                    </div>
+                                </div>
+
+                                <div class="bg-amber-50/50 border border-amber-200 rounded-xl p-4">
+                                    <label class="flex items-center space-x-3 cursor-pointer">
+                                        <input type="checkbox" id="estimator-achievement" checked onchange="calculateCost()" class="w-4 h-4 rounded text-amber-600 focus:ring-amber-500 border-slate-300">
+                                        <div>
+                                            <span class="text-xs font-bold text-amber-900 block" id="calc-label-mas">3. Michigan Achievement Scholarship</span>
+                                            <span class="text-[10px] text-amber-700" id="calc-mas-desc">Adds $5,500/year automatically for qualified students.</span>
+                                        </div>
+                                    </label>
+                                </div>
+
+                                <div>
+                                    <div class="flex justify-between items-center mb-1">
+                                        <label class="text-xs font-bold text-slate-700 uppercase tracking-wider" id="calc-label-other">4. Other Grants/Scholarships</label>
+                                        <span class="text-xs font-bold text-teal-600" id="other-val-display">$1,000</span>
+                                    </div>
+                                    <input type="range" id="estimator-other" min="0" max="10000" step="250" value="1000" oninput="calculateCost()" class="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-teal-600">
+                                    <div class="flex justify-between text-[10px] text-slate-400">
+                                        <span>$0</span>
+                                        <span>Max: $10,000</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Live Output Display Column -->
+                            <div class="bg-slate-900 text-white rounded-xl p-6 flex flex-col justify-between border border-slate-850">
+                                <div class="text-center md:text-left">
+                                    <h4 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1" id="calc-result-title">Net Annual Out-of-Pocket</h4>
+                                    <div class="text-3xl md:text-4xl font-black text-white" id="net-cost-output">$5,000</div>
+                                </div>
+
+                                <div class="my-6">
+                                    <div id="badge-color-container" class="inline-flex items-center px-3 py-1.5 rounded-lg text-xs font-bold bg-amber-500/20 text-amber-400 border border-amber-500/30 w-full justify-center">
+                                        <i class="fa-solid fa-circle-exclamation mr-1.5"></i>
+                                        <span id="status-badge-text">Manageable balance remaining</span>
+                                    </div>
+                                </div>
+
+                                <div class="text-xs text-slate-300 leading-relaxed pt-4 border-t border-slate-800">
+                                    <p id="calc-verdict">By filing FAFSA early, you unlock both federal support and State resources (like the MAS program) to drop university tuition substantially.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Live Zoom Registration Panel -->
+                <div class="lg:col-span-5 bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200">
+                    <h3 class="text-xl font-bold text-slate-900 mb-2 flex items-center gap-2">
+                        <i class="fa-solid fa-right-to-bracket text-blue-600"></i>
+                        <span id="webinar-reg-title">Reserve Free Webinar Access</span>
+                    </h3>
+                    <p class="text-xs text-slate-500 mb-6" id="webinar-reg-desc">Provide your information below. Meeting parameters will be delivered straight to your email inbox.</p>
+                    
+                    <form id="webinar-form" onsubmit="handleRegistration(event, 'Webinar')" class="space-y-4">
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 uppercase mb-1.5">Student Full Name</label>
+                            <input type="text" name="student_name" required placeholder="Ahmad El-Amin" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-white transition">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 uppercase mb-1.5">Parent/Guardian Name</label>
+                            <input type="text" name="parent_name" required placeholder="Tarig El-Amin" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-white transition">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 uppercase mb-1.5">Email Address</label>
+                            <input type="email" name="email" required placeholder="contact@domain.com" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-white transition">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 uppercase mb-1.5">Mobile Phone Number</label>
+                            <input type="tel" name="phone" required placeholder="(517) 555-0199" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-white transition">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 uppercase mb-1.5">Academic Class in Fall 2026</label>
+                            <select name="academic_tier" required class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-white transition">
+                                <option value="grad2026">Newly Graduated Class of 2026</option>
+                                <option value="senior">Rising High School Senior (Grade 12)</option>
+                                <option value="junior">Rising High School Junior (Grade 11)</option>
+                            </select>
+                        </div>
+                        
+                        <button type="submit" class="w-full py-3 px-4 rounded-xl font-bold text-white bg-blue-600 hover:bg-blue-700 shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-circle-check"></i>
+                            <span id="webinar-btn-submit">Register For Webinar & PDF Guide</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Scheduled Speaker Lineup -->
+            <div>
+                <div class="text-center max-w-2xl mx-auto mb-8">
+                    <span class="text-xs font-extrabold text-blue-600 tracking-wider uppercase bg-blue-50 px-3 py-1 rounded-full inline-block" id="speaker-sec-badge">Confirmed Webinar Presenters</span>
+                    <h3 class="text-2xl font-bold text-slate-900 mt-2" id="speaker-sec-title">Expert Panelists & Academic Coaches</h3>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
+                    <!-- Speaker 1 -->
+                    <div class="bg-white rounded-xl p-5 border border-slate-100 shadow-sm flex flex-col items-center text-center">
+                        <div class="w-16 h-16 rounded-full bg-slate-100 flex items-center justify-center text-blue-600 font-bold text-xl border-2 border-blue-500 mb-4">YK</div>
+                        <h4 class="font-bold text-slate-900 text-sm">Yasir Khalifa</h4>
+                        <p class="text-[10px] text-blue-600 font-semibold mb-2 uppercase">MSU Financial Aid Lead</p>
+                        <p class="text-xs text-slate-500" id="sp1-topic">Demystifying the FAFSA process and solving validation roadblocks.</p>
+                    </div>
+                    <!-- Speaker 2 -->
+                    <div class="bg-white rounded-xl p-5 border border-slate-100 shadow-sm flex flex-col items-center text-center">
+                        <div class="w-16 h-16 rounded-full bg-slate-100 flex items-center justify-center text-teal-600 font-bold text-xl border-2 border-teal-500 mb-4">MB</div>
+                        <h4 class="font-bold text-slate-900 text-sm">Dr. Mona Bashir</h4>
+                        <p class="text-[10px] text-teal-600 font-semibold mb-2 uppercase">LCC Counseling Specialist</p>
+                        <p class="text-xs text-slate-500" id="sp2-topic">Michigan Achievement Scholarship and MiSSG set up.</p>
+                    </div>
+                    <!-- Speaker 3 -->
+                    <div class="bg-white rounded-xl p-5 border border-slate-100 shadow-sm flex flex-col items-center text-center">
+                        <div class="w-16 h-16 rounded-full bg-slate-100 flex items-center justify-center text-amber-600 font-bold text-xl border-2 border-amber-500 mb-4">KM</div>
+                        <h4 class="font-bold text-slate-900 text-sm">Khalid Mustafa</h4>
+                        <p class="text-[10px] text-amber-600 font-semibold mb-2 uppercase">Academic Coordinator</p>
+                        <p class="text-xs text-slate-500" id="sp3-topic">Understanding dual-enrollment credits and pathways.</p>
+                    </div>
+                    <!-- Speaker 4 -->
+                    <div class="bg-white rounded-xl p-5 border border-slate-100 shadow-sm flex flex-col items-center text-center">
+                        <div class="w-16 h-16 rounded-full bg-slate-100 flex items-center justify-center text-indigo-600 font-bold text-xl border-2 border-indigo-500 mb-4">RA</div>
+                        <h4 class="font-bold text-slate-900 text-sm">Reem Ahmed</h4>
+                        <p class="text-[10px] text-indigo-600 font-semibold mb-2 uppercase">MSU Pre-Med Student</p>
+                        <p class="text-xs text-slate-500" id="sp4-topic">Securing highly competitive private & community awards.</p>
+                    </div>
+                    <!-- Speaker 5 -->
+                    <div class="bg-white rounded-xl p-5 border border-slate-100 shadow-sm flex flex-col items-center text-center">
+                        <div class="w-16 h-16 rounded-full bg-slate-100 flex items-center justify-center text-rose-600 font-bold text-xl border-2 border-rose-500 mb-4">OE</div>
+                        <h4 class="font-bold text-slate-900 text-sm">Eng. Omer El-Faroug</h4>
+                        <p class="text-[10px] text-rose-600 font-semibold mb-2 uppercase">Senior Tech Director</p>
+                        <p class="text-xs text-slate-500" id="sp5-topic">Strategies for writing letters of rec and essay prompts.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================== -->
+        <!-- TAB 2: SEMINAR CONTENT (JULY 25) -->
+        <!-- ============================================== -->
+        <div id="seminar-tab" class="hidden space-y-12">
+            
+            <!-- Quick Event Flyer & Meta Info -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                <div class="lg:col-span-7 space-y-6">
+                    <div class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-100">
+                        <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-teal-50 text-teal-700 mb-4 uppercase tracking-wider">
+                            <i class="fa-solid fa-map-pin mr-1.5"></i> Seminar Overview
+                        </span>
+                        <h3 class="text-2xl font-bold text-slate-900 mb-4" id="seminar-header-title">In-Person Career Mentorship & Round Tables</h3>
+                        <p class="text-slate-600 leading-relaxed mb-6" id="seminar-desc">
+                            Ready to map out the professional destination? Our interactive, in-person career workshop brings students and parents face-to-face with established professional mentors representing Medicine, Engineering, Law, and Business. 
+                        </p>
+                        
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 border-t border-slate-100 pt-6">
+                            <div class="flex items-start space-x-3">
+                                <div class="text-teal-600 text-lg mt-0.5"><i class="fa-solid fa-location-dot"></i></div>
+                                <div>
+                                    <h5 class="font-bold text-slate-900" id="seminar-loc-lbl">Location & Hall</h5>
+                                    <p class="text-xs text-slate-500 font-medium">Lansing Community Hall</p>
+                                    <p class="text-xs text-slate-400">Address sent securely upon RSVP</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <div class="text-amber-600 text-lg mt-0.5"><i class="fa-solid fa-mug-hot"></i></div>
+                                <div>
+                                    <h5 class="font-bold text-slate-900" id="seminar-chai-lbl">Hospitality Hub</h5>
+                                    <p class="text-xs text-slate-500 font-medium">Sudanese Cardamom Tea (Chai)</p>
+                                    <p class="text-xs text-slate-400">Savory Samosas & Traditional Treats</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Gamified "Passport to Success" Simulator -->
+                    <div class="bg-white rounded-2xl p-6 md:p-8 shadow-md border border-slate-200">
+                        <div class="flex justify-between items-start mb-2">
+                            <div>
+                                <h3 class="text-xl font-bold text-slate-900 flex items-center gap-2">
+                                    <i class="fa-solid fa-passport text-amber-500"></i>
+                                    <span id="passport-title">Passport to Success: Stamp Simulator</span>
+                                </h3>
+                                <p class="text-xs text-slate-500 mt-1" id="passport-desc">Click on 3 different career tables below to unlock the MSU Bookstore raffle entry certificate!</p>
+                            </div>
+                            <div class="bg-amber-100 border border-amber-200 rounded-lg px-3 py-1.5 text-center flex flex-col justify-center items-center">
+                                <span class="text-[9px] font-bold text-amber-800 uppercase" id="passport-stamps-lbl">Stamps Collected</span>
+                                <span id="passport-counter" class="text-lg font-black text-amber-700">0 / 3</span>
+                            </div>
+                        </div>
+
+                        <!-- Grid of Career Tables -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 my-6">
+                            <!-- Career Card 1: Medicine -->
+                            <button onclick="stampCareer('medicine', 'Medicine & Healthcare')" id="btn-stamp-medicine" class="stamp-card text-left p-4 rounded-xl border border-slate-200 hover:border-blue-500 hover:bg-blue-50/20 flex flex-col justify-between h-36 bg-slate-50/50">
+                                <div class="flex justify-between w-full items-start">
+                                    <span class="w-8 h-8 rounded-lg bg-red-100 text-red-600 flex items-center justify-center"><i class="fa-solid fa-user-doctor"></i></span>
+                                    <span id="stamp-indicator-medicine" class="text-slate-300 text-lg"><i class="fa-regular fa-circle-check"></i></span>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-slate-900 text-sm">Medical Table</h4>
+                                    <p class="text-[10px] text-slate-500 mt-0.5" id="roadmap-medicine-lbl">Learn the Pre-Med track</p>
+                                </div>
+                            </button>
+
+                            <!-- Career Card 2: Engineering -->
+                            <button onclick="stampCareer('engineering', 'Engineering & Tech')" id="btn-stamp-engineering" class="stamp-card text-left p-4 rounded-xl border border-slate-200 hover:border-blue-500 hover:bg-blue-50/20 flex flex-col justify-between h-36 bg-slate-50/50">
+                                <div class="flex justify-between w-full items-start">
+                                    <span class="w-8 h-8 rounded-lg bg-blue-100 text-blue-600 flex items-center justify-center"><i class="fa-solid fa-gears"></i></span>
+                                    <span id="stamp-indicator-engineering" class="text-slate-300 text-lg"><i class="fa-regular fa-circle-check"></i></span>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-slate-900 text-sm">Engineering Table</h4>
+                                    <p class="text-[10px] text-slate-500 mt-0.5" id="roadmap-eng-lbl">IT & Software track</p>
+                                </div>
+                            </button>
+
+                            <!-- Career Card 3: Law -->
+                            <button onclick="stampCareer('law', 'Law & Public Policy')" id="btn-stamp-law" class="stamp-card text-left p-4 rounded-xl border border-slate-200 hover:border-blue-500 hover:bg-blue-50/20 flex flex-col justify-between h-36 bg-slate-50/50">
+                                <div class="flex justify-between w-full items-start">
+                                    <span class="w-8 h-8 rounded-lg bg-emerald-100 text-emerald-600 flex items-center justify-center"><i class="fa-solid fa-scale-balanced"></i></span>
+                                    <span id="stamp-indicator-law" class="text-slate-300 text-lg"><i class="fa-regular fa-circle-check"></i></span>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-slate-900 text-sm">Law & Policy Table</h4>
+                                    <p class="text-[10px] text-slate-500 mt-0.5" id="roadmap-law-lbl">Prerequisites & LSAT</p>
+                                </div>
+                            </button>
+
+                            <!-- Career Card 4: Business -->
+                            <button onclick="stampCareer('business', 'Business & Finance')" id="btn-stamp-business" class="stamp-card text-left p-4 rounded-xl border border-slate-200 hover:border-blue-500 hover:bg-blue-50/20 flex flex-col justify-between h-36 bg-slate-50/50">
+                                <div class="flex justify-between w-full items-start">
+                                    <span class="w-8 h-8 rounded-lg bg-amber-100 text-amber-600 flex items-center justify-center"><i class="fa-solid fa-chart-line"></i></span>
+                                    <span id="stamp-indicator-business" class="text-slate-300 text-lg"><i class="fa-regular fa-circle-check"></i></span>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-slate-900 text-sm">Business Table</h4>
+                                    <p class="text-[10px] text-slate-500 mt-0.5" id="roadmap-bus-lbl">Finance & Economics</p>
+                                </div>
+                            </button>
+                        </div>
+
+                        <!-- Simulated Table Discussion Panel -->
+                        <div id="passport-output-box" class="bg-slate-900 text-white rounded-xl p-5 border border-slate-800 text-center py-8">
+                            <i class="fa-solid fa-circle-info text-2xl text-blue-400 mb-3 block"></i>
+                            <p class="text-sm text-slate-300 max-w-md mx-auto" id="passport-select-prompt">Click one of the tables above to simulate taking part in a 40-minute rotation session at the seminar.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Live RSVP Form -->
+                <div class="lg:col-span-5 bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-slate-200">
+                    <h3 class="text-xl font-bold text-slate-900 mb-2 flex items-center gap-2">
+                        <i class="fa-solid fa-envelope-open-text text-teal-600"></i>
+                        <span id="seminar-reg-title">In-Person Seminar RSVP</span>
+                    </h3>
+                    <p class="text-xs text-slate-500 mb-6" id="seminar-reg-desc">Complete this response to secure family entry, print custom Passport Cards, and confirm catering metrics.</p>
+                    
+                    <form id="seminar-form" onsubmit="handleRegistration(event, 'Seminar')" class="space-y-4">
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 uppercase mb-1.5">Student Full Name</label>
+                            <input type="text" name="student_name" required placeholder="Nora Abdelrahman" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500 focus:bg-white transition">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 uppercase mb-1.5">Parent/Guardian Name</label>
+                            <input type="text" name="parent_name" required placeholder="Tarig Abdelrahman" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500 focus:bg-white transition">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 uppercase mb-1.5">Email Address</label>
+                            <input type="email" name="email" required placeholder="contact@domain.com" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500 focus:bg-white transition">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 uppercase mb-1.5">Mobile Phone Number</label>
+                            <input type="tel" name="phone" required placeholder="(517) 555-0199" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500 focus:bg-white transition">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 uppercase mb-1.5">Total Family Attendees (including student)</label>
+                            <select name="attendance_count" required class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500 focus:bg-white transition">
+                                <option value="1">1 Person</option>
+                                <option value="2">2 People</option>
+                                <option value="3" selected>3 People</option>
+                                <option value="4">4 People</option>
+                                <option value="5">5+ People</option>
+                            </select>
+                        </div>
+                        
+                        <button type="submit" class="w-full py-3 px-4 rounded-xl font-bold text-white bg-teal-600 hover:bg-teal-700 shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-stamp"></i>
+                            <span id="seminar-btn-submit">Submit In-Person RSVP</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Scheduled Mentor Lineup -->
+            <div>
+                <div class="text-center max-w-2xl mx-auto mb-8">
+                    <span class="text-xs font-extrabold text-teal-600 tracking-wider uppercase bg-teal-50 px-3 py-1 rounded-full inline-block" id="mentor-sec-badge">Local Professional Mentors</span>
+                    <h3 class="text-2xl font-bold text-slate-900 mt-2" id="mentor-sec-title">Round Table Facilitators</h3>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Mentor 1 -->
+                    <div class="bg-white rounded-xl p-5 border border-slate-100 shadow-sm flex flex-col items-center text-center">
+                        <div class="w-16 h-16 rounded-full bg-red-50 text-red-600 flex items-center justify-center font-bold text-xl border-2 border-red-500 mb-4">
+                            <i class="fa-solid fa-user-doctor"></i>
+                        </div>
+                        <h4 class="font-bold text-slate-900 text-sm">Medicine & Clinical Health</h4>
+                        <p class="text-[10px] text-slate-500 font-semibold mb-2 uppercase" id="m1-sub">Medical Resident / Physician</p>
+                        <p class="text-xs text-slate-500" id="m1-desc">Guiding students on pre-med benchmarks, MCAT strategy, and clinical residency tracks.</p>
+                    </div>
+                    <!-- Mentor 2 -->
+                    <div class="bg-white rounded-xl p-5 border border-slate-100 shadow-sm flex flex-col items-center text-center">
+                        <div class="w-16 h-16 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center font-bold text-xl border-2 border-blue-500 mb-4">
+                            <i class="fa-solid fa-laptop-code"></i>
+                        </div>
+                        <h4 class="font-bold text-slate-900 text-sm">Engineering & Software Tech</h4>
+                        <p class="text-[10px] text-slate-500 font-semibold mb-2 uppercase" id="m2-sub">Software Architect / Engineer</p>
+                        <p class="text-xs text-slate-500" id="m2-desc">Sharing computer science benchmarks, building git portfolios, and locking internships.</p>
+                    </div>
+                    <!-- Mentor 3 -->
+                    <div class="bg-white rounded-xl p-5 border border-slate-100 shadow-sm flex flex-col items-center text-center">
+                        <div class="w-16 h-16 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold text-xl border-2 border-emerald-500 mb-4">
+                            <i class="fa-solid fa-scale-balanced"></i>
+                        </div>
+                        <h4 class="font-bold text-slate-900 text-sm">Law & Public Policy</h4>
+                        <p class="text-[10px] text-slate-500 font-semibold mb-2 uppercase" id="m3-sub">Defense Attorney / Consultant</p>
+                        <p class="text-xs text-slate-500" id="m3-desc">Explaining undergrad prerequisites, LSAT prep, and legal clerkship systems.</p>
+                    </div>
+                    <!-- Mentor 4 -->
+                    <div class="bg-white rounded-xl p-5 border border-slate-100 shadow-sm flex flex-col items-center text-center">
+                        <div class="w-16 h-16 rounded-full bg-amber-50 text-amber-600 flex items-center justify-center font-bold text-xl border-2 border-amber-500 mb-4">
+                            <i class="fa-solid fa-chart-line"></i>
+                        </div>
+                        <h4 class="font-bold text-slate-900 text-sm">Business & Finance</h4>
+                        <p class="text-[10px] text-slate-500 font-semibold mb-2 uppercase" id="m4-sub">Corporate Accountant / Exec</p>
+                        <p class="text-xs text-slate-500" id="m4-desc">Mapping career roadmaps in corporate audit, financial advisory, and local ventures.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Custom Modal Popup System (Replaces browser Alert) -->
+    <div id="custom-modal" class="hidden fixed inset-0 z-50 overflow-y-auto flex items-center justify-center px-4 bg-slate-900/60 backdrop-blur-sm transition-opacity duration-300">
+        <div class="relative bg-white rounded-2xl max-w-md w-full p-6 md:p-8 shadow-2xl border border-slate-100 text-center animate-in fade-in zoom-in-95 duration-200">
+            <div id="modal-icon-container" class="w-16 h-16 rounded-full flex items-center justify-center text-3xl mx-auto mb-4">
+                <!-- Icon injected dynamically -->
+            </div>
+            <h3 id="modal-title" class="text-xl font-bold text-slate-900 mb-2">Registration Secured!</h3>
+            <p id="modal-message" class="text-sm text-slate-500 leading-relaxed mb-6">Your details have been successfully mapped under CRF and SAGL administration databases.</p>
+            <button onclick="closeModal()" class="w-full py-2.5 px-4 rounded-xl text-sm font-bold text-white bg-slate-900 hover:bg-slate-800 transition duration-150">
+                Acknowledge & Close
+            </button>
+        </div>
+    </div>
+
+    <!-- Joint Footer -->
+    <footer class="bg-slate-900 text-slate-400 py-12 border-t border-slate-800 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-12 gap-8">
+            <div class="md:col-span-6 space-y-4">
+                <div class="flex items-center space-x-2 text-white">
+                    <i class="fa-solid fa-shield-halved text-amber-500"></i>
+                    <span class="font-extrabold text-sm tracking-wide uppercase">The Combined Research Foundation (CRF)</span>
+                </div>
+                <p class="text-xs text-slate-400 max-w-md leading-relaxed">
+                    CRF is a registered 501(c)(3) tax-exempt public charity organization. Serving as the official fiscal agent and operational director for the 2026 Lansing Youth Advancement joint initiative. All financial contributions are fully tax-deductible.
+                </p>
+                <p class="text-xs text-slate-500">
+                    &copy; 2026 The Combined Research Foundation & The Sudanese Association of Greater Lansing. All Rights Reserved.
+                </p>
+            </div>
+            
+            <div class="md:col-span-3 space-y-3">
+                <h5 class="text-xs font-bold text-white uppercase tracking-widest" id="footer-partners">Partner Links</h5>
+                <ul class="space-y-2 text-xs">
+                    <li><a href="https://studentaid.gov" target="_blank" class="hover:text-amber-400 transition flex items-center gap-1"><i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i> Federal FAFSA Portal</a></li>
+                    <li><a href="https://michigan.gov/missg" target="_blank" class="hover:text-amber-400 transition flex items-center gap-1"><i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i> Michigan Student Aid (MiSSG)</a></li>
+                    <li><a href="#" class="hover:text-amber-400 transition flex items-center gap-1"><i class="fa-solid fa-circle-nodes text-[10px]"></i> SAGL Regional Networks</a></li>
+                </ul>
+            </div>
+
+            <div class="md:col-span-3 space-y-3">
+                <h5 class="text-xs font-bold text-white uppercase tracking-widest" id="footer-contact">Contact Desk</h5>
+                <p class="text-xs leading-relaxed">
+                    Office of Academic Coordination<br>
+                    East Lansing, MI 48823<br>
+                    Email: <span class="text-amber-400">education@crf-sagl.org</span>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- STAMP SIMULATION / CALCULATOR / LANGUAGE SWITCHING JAVASCRIPT -->
+    <script>
+        // Language Toggle Dictionary
+        let currentLang = 'EN';
+        const translations = {
+            EN: {
+                brandCrf: "The Combined Research Foundation",
+                brandSagl: "Sudanese Association of Greater Lansing (SAGL)",
+                heroBadge: "Joint Summer Pipeline 2026",
+                heroTitle: "Bridges to Success: Higher Education & Career Pipelines",
+                heroSubtitle: "An educational and professional pathway framework custom-tailored for Lansing high school students, graduates, and immigrant families.",
+                heroDate1Label: "Event 1: Virtual Webinar",
+                heroDate1Title: "Saturday, July 11, 2026",
+                heroDate2Label: "Event 2: In-Person Workshop",
+                heroDate2Title: "Saturday, July 25, 2026",
+                tab1Name: "1. Scholarship & Funding Webinar",
+                tab2Name: "2. In-Person Career Seminar",
+                webinarHeaderTitle: "Unlocking Free Tuition & Navigating FAFSA",
+                webinarDesc: "Navigating the American college billing system can be challenging. This targeted, bilingual session is designed specifically for newly graduated high school seniors (Class of 2026), incoming juniors, and parents looking to demystify FAFSA systems and claim state-wide grants.",
+                webinarTimeLbl: "Time & Format",
+                webinarPerksLbl: "Attendee Perks",
+                calcTitle: "Interactive College Cost & Funding Estimator",
+                calcDesc: "Calculate how state and federal grants pile up to reduce high tuition costs in Michigan.",
+                calcLabelPath: "1. Select Higher Ed Path",
+                calcLabelPell: "2. Federal Pell Grant",
+                calcLabelMas: "3. Michigan Achievement Scholarship",
+                calcMasDesc: "Adds $5,500/year automatically for qualified students.",
+                calcLabelOther: "4. Other Grants/Scholarships",
+                calcResultTitle: "Net Annual Out-of-Pocket",
+                webinarRegTitle: "Reserve Free Webinar Access",
+                webinarRegDesc: "Provide your information below. Meeting parameters will be delivered straight to your email inbox.",
+                webinarBtnSubmit: "Register For Webinar & PDF Guide",
+                speakerSecBadge: "Confirmed Webinar Presenters",
+                speakerSecTitle: "Expert Panelists & Academic Coaches",
+                seminarHeaderTitle: "In-Person Career Mentorship & Round Tables",
+                seminarDesc: "Ready to map out the professional destination? Our interactive, in-person career workshop brings students and parents face-to-face with established professional mentors representing Medicine, Engineering, Law, and Business.",
+                seminarLocLbl: "Location & Hall",
+                seminarChaiLbl: "Hospitality Hub",
+                passportTitle: "Passport to Success: Stamp Simulator",
+                passportDesc: "Click on 3 different career tables below to unlock the MSU Bookstore raffle entry certificate!",
+                passportStampsLbl: "Stamps Collected",
+                passportSelectPrompt: "Click one of the tables above to simulate taking part in a 40-minute rotation session at the seminar.",
+                seminarRegTitle: "In-Person Seminar RSVP",
+                seminarRegDesc: "Complete this response to secure family entry, print custom Passport Cards, and confirm catering metrics.",
+                seminarBtnSubmit: "Submit In-Person RSVP",
+                mentorSecBadge: "Local Professional Mentors",
+                mentorSecTitle: "Round Table Facilitators",
+                footerPartners: "Partner Links",
+                footerContact: "Contact Desk",
+                langBtnText: "العربية"
+            },
+            AR: {
+                brandCrf: "مؤسسة الأبحاث المشتركة",
+                brandSagl: "الجمعية السودانية بلانسينج الكبرى (SAGL)",
+                heroBadge: "المبادرة الصيفية المشتركة 2026",
+                heroTitle: "جسور النجاح: التعليم العالي ومسارات المهن المستقبلية",
+                heroSubtitle: "برنامج تعليمي ومهني متكامل مصمم خصيصاً لمساعدة طلاب المدارس الثانوية، الخريجين، والأسر في منطقة لانسينج.",
+                heroDate1Label: "الفعالية 1: ندوة عبر الإنترنت",
+                heroDate1Title: "السبت، 11 يوليو 2026",
+                heroDate2Label: "الفعالية 2: الملتقى الحضوري",
+                heroDate2Title: "السبت، 25 يوليو 2026",
+                tab1Name: "1. ندوة المنح والتمويل الإلكترونية",
+                tab2Name: "2. الملتقى المهني الحضوري",
+                webinarHeaderTitle: "تأمين التعليم المجاني وفهم الـ FAFSA",
+                webinarDesc: "قد تكون طرق التقديم للجامعات والحصول على الدعم المالي معقدة. هذه الندوة الرقمية الثنائية اللغة مخصصة للخريجين الجدد والطلاب وأولياء الأمور لتوضيح طرق الحصول على المنح الحكومية المتميزة.",
+                webinarTimeLbl: "الوقت والتنسيق",
+                webinarPerksLbl: "مزايا الحاضرين",
+                calcTitle: "حاسبة تكاليف التعليم والدعم المالي التفاعلية",
+                calcDesc: "احسب كيف تتراكم المنح الفيدرالية والحكومية لتقليل تكاليف الدراسة في ولاية ميشيغان بشكل كبير.",
+                calcLabelPath: "1. اختر المسار التعليمي",
+                calcLabelPell: "2. منحة Pell الفيدرالية",
+                calcLabelMas: "3. منحة ميشيغان للإنجاز الدراسي (MAS)",
+                calcMasDesc: "تضيف 5,500 دولار سنوياً تلقائياً للطلاب المؤهلين.",
+                calcLabelOther: "4. منح ومساعدات أخرى",
+                calcResultTitle: "صافي التكلفة السنوية المدفوعة",
+                webinarRegTitle: "احجز مقعدك المجاني في الندوة",
+                webinarRegDesc: "أدخل معلوماتك أدناه، وسيتم إرسال تفاصيل رابط زووم والملفات مباشرة إلى بريدك الإلكتروني.",
+                webinarBtnSubmit: "سجل الآن للندوة واحصل على دليل التمويل",
+                speakerSecBadge: "المتحدثون المؤكد حضورهم",
+                speakerSecTitle: "الخبراء الأكاديميون والموجهون",
+                seminarHeaderTitle: "الإرشاد المهني الحضوري والطاولات المستديرة",
+                seminarDesc: "هل أنت مستعد لتحديد ملامح مستقبلك المهني؟ يتيح هذا الملتقى التفاعلي المباشر للطلاب وأولياء الأمور الجلوس وجهاً لوجه مع مرشدين متميزين في مجالات الطب والهندسة والقانون وإدارة الأعمال.",
+                seminarLocLbl: "الموقع والقاعة",
+                seminarChaiLbl: "ضيافة الجالية",
+                passportTitle: "جواز النجاح: محاكي الطاولات المهنية",
+                passportDesc: "اضغط على 3 طاولات مهنية مختلفة أدناه للحصول على بطاقة دخول السحب الكبرى لمكتبة جامعة MSU!",
+                passportStampsLbl: "الأختام المجمعة",
+                passportSelectPrompt: "اضغط على إحدى الطاولات المهنية أعلاه لمحاكاة الجلوس في جلسة نقاشية مدتها 40 دقيقة مع الموجه الأكاديمي.",
+                seminarRegTitle: "تأكيد الحضور للملتقى الحضوري",
+                seminarRegDesc: "يرجى تأكيد حضورك لمساعدتنا في تنظيم الطاولات وضمان توفير العدد الكافي لضيافة الشاي السوداني المميز.",
+                seminarBtnSubmit: "تأكيد الحضور وتأمين المقعد",
+                mentorSecBadge: "الموجهون المهنيون المعتمدون",
+                mentorSecTitle: "مشرفو طاولات الإرشاد المهني",
+                footerPartners: "روابط شريكة هامة",
+                footerContact: "مكتب الاتصال والتنسيق",
+                langBtnText: "English"
+            }
+        };
+
+        // Switch Language function
+        function toggleLanguage() {
+            currentLang = currentLang === 'EN' ? 'AR' : 'EN';
+            const dict = translations[currentLang];
+            
+            // Apply text translations safely
+            document.getElementById('brand-crf').textContent = dict.brandCrf;
+            document.getElementById('brand-sagl').textContent = dict.brandSagl;
+            document.getElementById('hero-badge').textContent = dict.heroBadge;
+            document.getElementById('hero-title').textContent = dict.heroTitle;
+            document.getElementById('hero-subtitle').textContent = dict.heroSubtitle;
+            document.getElementById('hero-date1-label').textContent = dict.heroDate1Label;
+            document.getElementById('hero-date1-title').textContent = dict.heroDate1Title;
+            document.getElementById('hero-date2-label').textContent = dict.heroDate2Label;
+            document.getElementById('hero-date2-title').textContent = dict.heroDate2Title;
+            document.getElementById('tab1-name').textContent = dict.tab1Name;
+            document.getElementById('tab2-name').textContent = dict.tab2Name;
+            document.getElementById('webinar-header-title').textContent = dict.webinarHeaderTitle;
+            document.getElementById('webinar-desc').textContent = dict.webinarDesc;
+            document.getElementById('webinar-time-lbl').textContent = dict.webinarTimeLbl;
+            document.getElementById('webinar-perks-lbl').textContent = dict.webinarPerksLbl;
+            document.getElementById('calc-title').textContent = dict.calcTitle;
+            document.getElementById('calc-desc').textContent = dict.calcDesc;
+            document.getElementById('calc-label-path').textContent = dict.calcLabelPath;
+            document.getElementById('calc-label-pell').textContent = dict.calcLabelPell;
+            document.getElementById('calc-label-mas').textContent = dict.calcLabelMas;
+            document.getElementById('calc-mas-desc').textContent = dict.calcMasDesc;
+            document.getElementById('calc-label-other').textContent = dict.calcLabelOther;
+            document.getElementById('calc-result-title').textContent = dict.calcResultTitle;
+            document.getElementById('webinar-reg-title').textContent = dict.webinarRegTitle;
+            document.getElementById('webinar-reg-desc').textContent = dict.webinarRegDesc;
+            document.getElementById('webinar-btn-submit').textContent = dict.webinarBtnSubmit;
+            document.getElementById('speaker-sec-badge').textContent = dict.speakerSecBadge;
+            document.getElementById('speaker-sec-title').textContent = dict.speakerSecTitle;
+            document.getElementById('seminar-header-title').textContent = dict.seminarHeaderTitle;
+            document.getElementById('seminar-desc').textContent = dict.seminarDesc;
+            document.getElementById('seminar-loc-lbl').textContent = dict.seminarLocLbl;
+            document.getElementById('seminar-chai-lbl').textContent = dict.seminarChaiLbl;
+            document.getElementById('passport-title').textContent = dict.passportTitle;
+            document.getElementById('passport-desc').textContent = dict.passportDesc;
+            document.getElementById('passport-stamps-lbl').textContent = dict.passportStampsLbl;
+            document.getElementById('passport-select-prompt').textContent = dict.passportSelectPrompt;
+            document.getElementById('seminar-reg-title').textContent = dict.seminarRegTitle;
+            document.getElementById('seminar-reg-desc').textContent = dict.seminarRegDesc;
+            document.getElementById('seminar-btn-submit').textContent = dict.seminarBtnSubmit;
+            document.getElementById('mentor-sec-badge').textContent = dict.mentorSecBadge;
+            document.getElementById('mentor-sec-title').textContent = dict.mentorSecTitle;
+            document.getElementById('footer-partners').textContent = dict.footerPartners;
+            document.getElementById('footer-contact').textContent = dict.footerContact;
+            document.getElementById('lang-btn-text').textContent = dict.langBtnText;
+
+            // Set document direction dynamically
+            if (currentLang === 'AR') {
+                document.documentElement.dir = 'rtl';
+            } else {
+                document.documentElement.dir = 'ltr';
+            }
+        }
+
+        // Tab Switching Logic
+        function switchTab(tabId) {
+            const webinarTab = document.getElementById('webinar-tab');
+            const seminarTab = document.getElementById('seminar-tab');
+            const webinarBtn = document.getElementById('webinar-tab-btn');
+            const seminarBtn = document.getElementById('seminar-tab-btn');
+
+            if (tabId === 'webinar-tab') {
+                webinarTab.classList.remove('hidden');
+                seminarTab.classList.add('hidden');
+                
+                webinarBtn.className = "border-b-4 border-blue-600 text-blue-600 px-1 py-4 text-sm font-bold flex items-center gap-2 transition duration-150";
+                seminarBtn.className = "border-b-4 border-transparent text-slate-500 hover:text-slate-700 hover:border-slate-300 px-1 py-4 text-sm font-medium flex items-center gap-2 transition duration-150";
+            } else {
+                webinarTab.classList.add('hidden');
+                seminarTab.classList.remove('hidden');
+                
+                seminarBtn.className = "border-b-4 border-teal-600 text-teal-600 px-1 py-4 text-sm font-bold flex items-center gap-2 transition duration-150";
+                webinarBtn.className = "border-b-4 border-transparent text-slate-500 hover:text-slate-700 hover:border-slate-300 px-1 py-4 text-sm font-medium flex items-center gap-2 transition duration-150";
+            }
+        }
+
+        // Interactive College Cost Estimator calculations
+        function calculateCost() {
+            const baseTuition = parseFloat(document.getElementById('estimator-path').value);
+            const pellGrant = parseFloat(document.getElementById('estimator-pell').value);
+            const isMasChecked = document.getElementById('estimator-achievement').checked;
+            const otherGrants = parseFloat(document.getElementById('estimator-other').value);
+
+            // Update UI value displays dynamically
+            document.getElementById('pell-val-display').textContent = "$" + pellGrant.toLocaleString();
+            document.getElementById('other-val-display').textContent = "$" + otherGrants.toLocaleString();
+
+            const masAward = isMasChecked ? 5500 : 0;
+            const totalAid = pellGrant + masAward + otherGrants;
+            const netCost = Math.max(0, baseTuition - totalAid);
+
+            // Print Output
+            const outputElement = document.getElementById('net-cost-output');
+            if (netCost <= 0) {
+                outputElement.textContent = "$0 (Fully Covered!)";
+            } else {
+                outputElement.textContent = "$" + Math.round(netCost).toLocaleString();
+            }
+
+            // Adjust Visual Badges based on remaining tuition load
+            const badgeContainer = document.getElementById('badge-color-container');
+            const badgeText = document.getElementById('status-badge-text');
+            const verdictText = document.getElementById('calc-verdict');
+
+            if (netCost <= 0) {
+                badgeContainer.className = "inline-flex items-center px-3 py-1.5 rounded-lg text-xs font-bold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 w-full justify-center stamp-glow";
+                badgeText.innerHTML = `<i class="fa-solid fa-circle-check mr-1"></i> Excellent coverage! No out-of-pocket tuition.`;
+                verdictText.textContent = "Your aid exceeds tuition costs. Any excess funding may go toward textbook vouchers or transport expenses.";
+            } else if (netCost < 5000) {
+                badgeContainer.className = "inline-flex items-center px-3 py-1.5 rounded-lg text-xs font-bold bg-amber-500/20 text-amber-400 border border-amber-500/30 w-full justify-center";
+                badgeText.innerHTML = `<i class="fa-solid fa-triangle-exclamation mr-1"></i> Highly manageable remaining balance.`;
+                verdictText.textContent = "The remaining cost can be covered comfortably via basic work-study models or interest-free state plans.";
+            } else {
+                badgeContainer.className = "inline-flex items-center px-3 py-1.5 rounded-lg text-xs font-bold bg-red-500/20 text-red-400 border border-red-500/30 w-full justify-center";
+                badgeText.innerHTML = `<i class="fa-solid fa-circle-xmark mr-1"></i> Elevated out-of-pocket balance.`;
+                verdictText.textContent = "Consider opting for a Community College pathway first or seeking additional private credit-union grants.";
+            }
+        }
+
+        // "Passport to Success" Game Simulation Code
+        let collectedStamps = new Set();
+        const roadmaps = {
+            medicine: {
+                title: "Medicine & Healthcare Table Insights",
+                icon: "fa-user-doctor text-red-500 bg-red-100",
+                points: [
+                    "High School Prerequisites: Prioritize AP Chemistry, Biology, and volunteer work.",
+                    "The Undergraduate Target: Choose pre-med or biology but maintain a strict GPA baseline (>3.5).",
+                    "Preparation Timeline: Schedule MCAT exam preparations by the end of junior year.",
+                    "Language Strategy: Bilingual professionals (English/Arabic) are heavily valued in healthcare!"
+                ]
+            },
+            engineering: {
+                title: "Engineering & Software Technology Insights",
+                icon: "fa-gears text-blue-500 bg-blue-100",
+                points: [
+                    "Class Prep: AP Physics and calculus provide an immense college head-start.",
+                    "Portfolio over GPA: Secure a clean GitHub portfolio or construct small-scale tech projects.",
+                    "Career Pipelines: Focus heavy efforts on landing summer corporate internships.",
+                    "Work-Life: Tech degrees offer the highest starting salaries immediately after a 4-year track."
+                ]
+            },
+            law: {
+                title: "Law & Public Policy Insights",
+                icon: "fa-scale-balanced text-emerald-500 bg-emerald-100",
+                points: [
+                    "Prerequisite Major: Any major works (English, Philosophy, or History are common choice tracks).",
+                    "The LSAT Barrier: The LSAT score holds the highest leverage on professional school entry.",
+                    "Realities: Demystify the day-to-day clerkship paths. Focus on mock court volunteering.",
+                    "Advocacy: Deep focus on public service, civil rights, and community empowerment."
+                ]
+            },
+            business: {
+                title: "Business & Corporate Management Insights",
+                icon: "fa-chart-line text-amber-500 bg-amber-100",
+                points: [
+                    "Tracks: Corporate Finance, Audit Accounting, and Venture Entrepreneurship.",
+                    "The Catalyst: Strong conversational networking and active community management.",
+                    "Academic Focus: Take statistics, business writing, and communication classes.",
+                    "Leadership: Learn analytical management software suites (Excel, Python data models)."
+                ]
+            }
+        };
+
+        function stampCareer(careerId, careerName) {
+            // Update Stamps Set
+            collectedStamps.add(careerId);
+            
+            // Highlight Stamp Indicator UI
+            const indicator = document.getElementById(`stamp-indicator-${careerId}`);
+            indicator.className = "text-amber-500 text-lg stamp-glow animate-bounce";
+            indicator.innerHTML = `<i class="fa-solid fa-circle-check"></i>`;
+
+            // Highlight Stamp Card visually
+            const btnCard = document.getElementById(`btn-stamp-${careerId}`);
+            btnCard.className = "stamp-card text-left p-4 rounded-xl border-2 border-amber-500 bg-amber-50/20 flex flex-col justify-between h-36";
+
+            // Update Counter Text
+            const counterElement = document.getElementById('passport-counter');
+            counterElement.textContent = `${collectedStamps.size} / 3`;
+
+            // Update Output Box Content Dynamically
+            const outputBox = document.getElementById('passport-output-box');
+            const data = roadmaps[careerId];
+
+            let htmlString = `
+                <div class="text-left space-y-4">
+                    <div class="flex items-center gap-3">
+                        <span class="w-10 h-10 rounded-xl ${data.icon} flex items-center justify-center text-lg shadow-sm"><i class="fa-solid"></i></span>
+                        <h4 class="font-bold text-white text-base">${data.title}</h4>
+                    </div>
+                    <ul class="space-y-2 text-xs text-slate-300 border-t border-slate-800 pt-3">
+            `;
+
+            data.points.forEach(point => {
+                htmlString += `
+                    <li class="flex items-start gap-2">
+                        <span class="text-amber-500 mt-0.5"><i class="fa-solid fa-circle-chevron-right"></i></span>
+                        <span>${point}</span>
+                    </li>
+                `;
+            });
+
+            htmlString += `</ul></div>`;
+
+            // Display check if Passport is completed
+            if (collectedStamps.size >= 3) {
+                counterElement.className = "text-lg font-black text-emerald-600 animate-pulse";
+                htmlString += `
+                    <div class="mt-6 p-4 rounded-xl bg-emerald-500/20 border border-emerald-500/30 text-center text-emerald-400">
+                        <i class="fa-solid fa-certificate text-2xl mb-1"></i>
+                        <h5 class="text-xs font-bold uppercase tracking-wider">Passport Completed!</h5>
+                        <p class="text-[10px] text-slate-300">You are officially eligible to be entered into the MSU Bookstore Gift Card Raffle during our July 25th in-person seminar!</p>
+                    </div>
+                `;
+            }
+
+            outputBox.innerHTML = htmlString;
+        }
+
+        // Custom Modal Controllers
+        function showModal(title, msg, isSuccess = true) {
+            const modal = document.getElementById('custom-modal');
+            const modalIcon = document.getElementById('modal-icon-container');
+            const modalTitle = document.getElementById('modal-title');
+            const modalMsg = document.getElementById('modal-message');
+
+            modalTitle.textContent = title;
+            modalMsg.textContent = msg;
+
+            if (isSuccess) {
+                modalIcon.className = "w-16 h-16 rounded-full flex items-center justify-center text-3xl mx-auto mb-4 bg-emerald-100 text-emerald-600";
+                modalIcon.innerHTML = `<i class="fa-solid fa-circle-check"></i>`;
+            } else {
+                modalIcon.className = "w-16 h-16 rounded-full flex items-center justify-center text-3xl mx-auto mb-4 bg-red-100 text-red-600";
+                modalIcon.innerHTML = `<i class="fa-solid fa-triangle-exclamation"></i>`;
+            }
+
+            modal.classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('custom-modal').classList.add('hidden');
+        }
+
+        // Form Submit Handler
+        function handleRegistration(event, type) {
+            event.preventDefault();
+            const form = event.target;
+            const data = new FormData(form);
+
+            const sName = data.get('student_name');
+            const pName = data.get('parent_name');
+            const email = data.get('email');
+
+            const title = "RSVP Confirmed!";
+            const msg = `Alhamdulillah! We have secured a spot for ${sName} and family coordinator ${pName}. Access coordinates and our customized 1-Page Resource Booklet have been delivered to: ${email}. We look forward to building our youth's future together!`;
+
+            showModal(title, msg, true);
+            form.reset();
+        }
+
+        // Initialize Estimator Output on page load
+        window.onload = function() {
+            calculateCost();
+        };
+    </script>
+</body>
+</html>
