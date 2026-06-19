@@ -1,0 +1,1235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAGL & CRF Summer Youth Initiative 2026</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome for Premium Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'Cairo', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: {
+                            50: '#f0f7ff',
+                            100: '#e0effe',
+                            500: '#0284c7',
+                            900: '#0c4a6e',
+                        },
+                        accent: {
+                            400: '#fbbf24',
+                            500: '#f59e0b',
+                            600: '#d97706',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <script>
+        // Define handleImageError in head to prevent ReferenceError race conditions when images fail to load before the body scripts are parsed
+        function handleImageError(img, type) {
+            img.style.display = 'none';
+            const fallbackId = type === 'funding' ? 'fallback-funding' : 'fallback-career';
+            const fallbackEl = document.getElementById(fallbackId);
+            if (fallbackEl) {
+                fallbackEl.classList.remove('hidden');
+            }
+        }
+    </script>
+    <style>
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #1e293b;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #475569;
+            border-radius: 3px;
+        }
+        .glass-panel {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .tab-transition {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen font-sans antialiased custom-scrollbar">
+
+    <!-- TOP ANNOUNCEMENT TICKER -->
+    <div class="bg-gradient-to-r from-cyan-900 via-slate-900 to-amber-900 text-xs py-2 px-4 text-center border-b border-slate-800">
+        <span id="ticker-text" class="font-medium tracking-wide">
+            🌟 Joint Initiative by the Sudanese Association of Greater Lansing & The Combined Research Foundation (501c3)
+        </span>
+    </div>
+
+    <!-- MAIN APP WRAPPER -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+        
+        <!-- HEADER SECTION -->
+        <header class="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-slate-800">
+            <div class="flex items-center gap-4">
+                <div class="p-3 bg-gradient-to-tr from-cyan-500 to-amber-500 rounded-2xl shadow-lg shadow-cyan-500/10">
+                    <i class="fa-solid fa-graduation-cap text-3xl text-slate-950"></i>
+                </div>
+                <div>
+                    <h1 class="text-2xl sm:text-3xl font-extrabold tracking-tight bg-gradient-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent">
+                        CRF & SAGL
+                    </h1>
+                    <p id="app-subtitle" class="text-xs sm:text-sm text-cyan-400 font-semibold uppercase tracking-wider">
+                        Youth Education & Career Pipeline 2026
+                    </p>
+                </div>
+            </div>
+            
+            <div class="flex items-center gap-4">
+                <!-- Share Button -->
+                <button onclick="copyShareLink()" class="px-4 py-2 text-sm bg-slate-900 border border-slate-800 hover:border-slate-700 hover:bg-slate-850 rounded-xl transition flex items-center gap-2">
+                    <i class="fa-solid fa-share-nodes"></i>
+                    <span id="btn-share">Share Page</span>
+                </button>
+                
+                <!-- Language Toggle -->
+                <button onclick="toggleLanguage()" class="px-4 py-2 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-slate-950 font-bold rounded-xl transition flex items-center gap-2 shadow-lg shadow-amber-500/20">
+                    <i class="fa-solid fa-globe"></i>
+                    <span id="lang-btn-text" class="font-semibold">العربية</span>
+                </button>
+            </div>
+        </header>
+
+        <!-- INTRODUCTION HERO -->
+        <section class="my-8 p-6 sm:p-8 rounded-3xl bg-gradient-to-br from-slate-900 to-slate-950 border border-slate-800 relative overflow-hidden">
+            <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(6,182,212,0.08),transparent_45%)]"></div>
+            <div class="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(245,158,11,0.05),transparent_45%)]"></div>
+            
+            <div class="relative z-10 max-w-3xl">
+                <span class="px-3 py-1 text-xs font-bold text-amber-400 bg-amber-400/10 border border-amber-400/20 rounded-full inline-block mb-4" id="hero-badge">
+                    Summer Series 2026
+                </span>
+                <h2 id="hero-title" class="text-3xl sm:text-4xl font-extrabold tracking-tight mb-4">
+                    Empowering the Next Generation of Lansing Youth
+                </h2>
+                <p id="hero-desc" class="text-slate-400 text-sm sm:text-base leading-relaxed mb-6">
+                    Join us for an intensive, two-part series designed to help students secure debt-free college financing and explore direct, guided roadmaps to high-impact professional careers like Medicine, Engineering, Law, and Finance.
+                </p>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-2">
+                    <div class="flex items-center gap-3 p-3 bg-slate-850 rounded-xl border border-slate-800">
+                        <i class="fa-solid fa-laptop-code text-xl text-cyan-400"></i>
+                        <div>
+                            <p class="text-xs text-slate-400 font-semibold uppercase tracking-wider" id="hero-card1-sub">Part 1: Virtual</p>
+                            <p class="text-sm font-bold" id="hero-card1-title">Scholarship Webinar (July 11)</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-3 p-3 bg-slate-850 rounded-xl border border-slate-800">
+                        <i class="fa-solid fa-users text-xl text-amber-400"></i>
+                        <div>
+                            <p class="text-xs text-slate-400 font-semibold uppercase tracking-wider" id="hero-card2-sub">Part 2: In-Person</p>
+                            <p class="text-sm font-bold" id="hero-card2-title">Career Mentorship (July 25)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TABS NAVIGATOR -->
+        <div class="flex border-b border-slate-800 mb-8 sticky top-0 bg-slate-950/90 backdrop-blur z-20 py-2">
+            <button onclick="switchTab('webinar')" id="tab-webinar" class="flex-1 py-4 text-center border-b-2 font-bold text-sm sm:text-base tracking-wide flex items-center justify-center gap-2 tab-transition border-cyan-500 text-cyan-400">
+                <i class="fa-solid fa-display"></i>
+                <span id="tab-webinar-text">Webinar: College Funding</span>
+            </button>
+            <button onclick="switchTab('seminar')" id="tab-seminar" class="flex-1 py-4 text-center border-b-2 font-bold text-sm sm:text-base tracking-wide flex items-center justify-center gap-2 tab-transition border-transparent text-slate-400 hover:text-slate-200">
+                <i class="fa-solid fa-user-tie"></i>
+                <span id="tab-seminar-text">Seminar: Career Roadmap</span>
+            </button>
+        </div>
+
+        <!-- TAB CONTENT: WEBINAR -->
+        <div id="content-webinar" class="space-y-12 block">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                
+                <!-- Left: Flyer & Interactive Overlay Preview -->
+                <div class="lg:col-span-5 space-y-6">
+                    <div class="bg-slate-900 border border-slate-800 rounded-3xl p-4 shadow-xl">
+                        <h3 class="text-lg font-bold text-slate-200 mb-3 flex items-center gap-2" id="webinar-flyer-title">
+                            <i class="fa-regular fa-image text-cyan-400"></i> Official Event Flyer
+                        </h3>
+                        
+                        <div class="relative rounded-2xl overflow-hidden shadow-2xl border border-slate-700 bg-slate-850 aspect-[4/5] flex items-center justify-center">
+                            <!-- High resolution generated flyer placeholder -->
+                            <img src="Gemini_Generated_Image_iugf44iugf44iugf.png" alt="College Funding Webinar Flyer" class="w-full h-full object-cover" onerror="handleImageError(this, 'funding');" />
+                            
+                            <!-- Static/Fallback Graphic if image fails -->
+                            <div id="fallback-funding" class="hidden absolute inset-0 bg-gradient-to-br from-slate-950 via-cyan-950 to-slate-900 flex flex-col justify-between p-6">
+                                <div class="border-4 border-double border-amber-500/30 p-4 rounded-xl flex-1 flex flex-col justify-between">
+                                    <div class="text-center">
+                                        <p class="text-amber-400 font-bold tracking-widest text-sm uppercase">Joint Webinar Event</p>
+                                        <h4 class="text-2xl font-extrabold mt-2 text-white">SCHOLARSHIP & FUNDING</h4>
+                                        <p class="text-xs text-cyan-400 mt-1">Michigan Higher Education Access 2026</p>
+                                    </div>
+                                    <div class="flex justify-center my-6">
+                                        <i class="fa-solid fa-shield-halved text-6xl text-amber-400/80"></i>
+                                    </div>
+                                    <div class="space-y-2 text-center text-xs text-slate-400">
+                                        <p class="font-bold text-slate-200">Date: July 11, 2026 @ 6:30 PM</p>
+                                        <p>FAFSA & MiSSG Step-by-Step Guidance</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Live VIP Ticket Name Overlay -->
+                            <div class="absolute bottom-6 left-0 right-0 px-6">
+                                <div class="bg-slate-950/95 border border-amber-500/40 p-3 rounded-xl shadow-lg text-center backdrop-blur-sm">
+                                    <p class="text-[9px] uppercase tracking-wider text-amber-400 font-extrabold" id="vip-badge-label">Personalized Guest Ticket</p>
+                                    <p id="vip-name-overlay" class="text-sm font-black text-white tracking-wide mt-1">GUEST ATTENDEE</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Mini Name Customizer Input -->
+                        <div class="mt-4">
+                            <label class="block text-xs font-bold text-slate-400 uppercase tracking-wide mb-2" id="customize-label">Type your name to personalize your flyer:</label>
+                            <input type="text" id="custom-name-input" onkeyup="updateTicketName(this.value)" placeholder="Enter Name..." class="w-full bg-slate-950 border border-slate-800 focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 rounded-xl px-4 py-2.5 text-sm outline-none transition text-slate-200">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Information & Estimator Calculator -->
+                <div class="lg:col-span-7 space-y-8">
+                    
+                    <!-- Quick Specs Panel -->
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                        <div class="bg-slate-900 border border-slate-800 p-4 rounded-2xl">
+                            <span class="text-xs text-slate-400 block mb-1" id="spec-date">Date</span>
+                            <span class="font-bold text-sm text-cyan-400">Saturday, July 11</span>
+                        </div>
+                        <div class="bg-slate-900 border border-slate-800 p-4 rounded-2xl">
+                            <span class="text-xs text-slate-400 block mb-1" id="spec-time">Time</span>
+                            <span class="font-bold text-sm text-cyan-400">6:30 - 8:00 PM EST</span>
+                        </div>
+                        <div class="bg-slate-900 border border-slate-800 p-4 rounded-2xl">
+                            <span class="text-xs text-slate-400 block mb-1" id="spec-loc">Location</span>
+                            <span class="font-bold text-sm text-amber-400">Virtual (Zoom)</span>
+                        </div>
+                        <div class="bg-slate-900 border border-slate-800 p-4 rounded-2xl">
+                            <span class="text-xs text-slate-400 block mb-1" id="spec-cost">Fee</span>
+                            <span class="font-bold text-sm text-emerald-400" id="free-badge">100% Free</span>
+                        </div>
+                    </div>
+
+                    <!-- Interactive Calculator Widget -->
+                    <div class="bg-slate-900 border border-slate-800 rounded-3xl p-6 sm:p-8 relative overflow-hidden shadow-2xl">
+                        <div class="absolute top-0 right-0 bg-cyan-500/10 text-cyan-400 text-xs font-bold px-3 py-1 rounded-bl-xl border-l border-b border-cyan-500/20 uppercase tracking-widest" id="widget-badge">
+                            Interactive Math Tool
+                        </div>
+                        <h3 class="text-xl font-black text-slate-100 mb-2 flex items-center gap-2" id="calc-title">
+                            <i class="fa-solid fa-calculator text-cyan-500"></i> College Cost & Funding Estimator
+                        </h3>
+                        <p class="text-xs sm:text-sm text-slate-400 mb-6 leading-relaxed" id="calc-desc">
+                            See how state-level aid structures, Pell grants, and local funding stack against baseline tuition rates to secure a near-zero net outcome.
+                        </p>
+                        
+                        <div class="space-y-6">
+                            <!-- Dropdown for College Tier -->
+                            <div>
+                                <label class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-2" id="calc-lbl-tier">Select Institutional Path</label>
+                                <select id="college-tier" onchange="calculateCollegeCosts()" class="w-full bg-slate-950 border border-slate-800 focus:border-cyan-500 rounded-xl px-4 py-3 text-sm outline-none transition text-slate-200 font-semibold">
+                                    <option value="4000" id="cc-option">Community College (e.g. LCC) — $4,000 / Year</option>
+                                    <option value="15000" selected id="univ-option">In-State Public University (e.g. MSU) — $15,000 / Year</option>
+                                    <option value="35000" id="private-option">In-State Private College — $35,000 / Year</option>
+                                </select>
+                            </div>
+                            
+                            <!-- Slider: Pell Grant -->
+                            <div>
+                                <div class="flex justify-between items-center mb-2">
+                                    <label class="text-xs font-bold text-slate-400 uppercase tracking-wider" id="calc-lbl-pell">Estimated Federal Pell Grant Award</label>
+                                    <span class="text-sm font-black text-cyan-400" id="pell-val">$3,500</span>
+                                </div>
+                                <input type="range" id="pell-slider" min="0" max="7395" step="100" value="3500" oninput="calculateCollegeCosts()" class="w-full accent-cyan-500 bg-slate-950 rounded-lg appearance-none h-2 cursor-pointer">
+                                <div class="flex justify-between text-[10px] text-slate-500 mt-1">
+                                    <span>$0</span>
+                                    <span id="max-pell-label">Max Pell: $7,395</span>
+                                </div>
+                            </div>
+                            
+                            <!-- Toggle: Michigan Achievement Scholarship -->
+                            <div class="flex items-center justify-between p-4 bg-slate-950 rounded-2xl border border-slate-850">
+                                <div class="flex gap-3 items-start">
+                                    <i class="fa-solid fa-award text-amber-500 text-xl mt-1"></i>
+                                    <div>
+                                        <p class="text-sm font-bold text-slate-200" id="calc-mas-title">Michigan Achievement Scholarship</p>
+                                        <p class="text-xs text-slate-400" id="calc-mas-desc">Eligibility: Michigan resident high school graduate</p>
+                                    </div>
+                                </div>
+                                <label class="relative inline-flex items-center cursor-pointer">
+                                    <input type="checkbox" id="mas-toggle" checked onchange="calculateCollegeCosts()" class="sr-only peer">
+                                    <div class="w-11 h-6 bg-slate-800 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-slate-300 after:border-slate-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-cyan-500"></div>
+                                </label>
+                            </div>
+
+                            <!-- Slider: Other/Institutional Private Grants -->
+                            <div>
+                                <div class="flex justify-between items-center mb-2">
+                                    <label class="text-xs font-bold text-slate-400 uppercase tracking-wider" id="calc-lbl-other">Other Local & Private Grants</label>
+                                    <span class="text-sm font-black text-cyan-400" id="other-val">$1,000</span>
+                                </div>
+                                <input type="range" id="other-slider" min="0" max="10000" step="250" value="1000" oninput="calculateCollegeCosts()" class="w-full accent-cyan-500 bg-slate-950 rounded-lg appearance-none h-2 cursor-pointer">
+                                <div class="flex justify-between text-[10px] text-slate-500 mt-1">
+                                    <span>$0</span>
+                                    <span>Max: $10,000</span>
+                                </div>
+                            </div>
+
+                            <!-- Calculation Result Box -->
+                            <div class="p-5 rounded-2xl border-2 transition-all duration-350 bg-slate-950 border-emerald-500/20 shadow-lg" id="result-box">
+                                <div class="flex justify-between items-center flex-wrap gap-4">
+                                    <div>
+                                        <h4 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1" id="calc-res-title">Estimated Net Out-Of-Pocket Cost</h4>
+                                        <span class="text-3xl font-black text-emerald-400" id="net-cost-display">$5,000 / Year</span>
+                                    </div>
+                                    <div class="px-3.5 py-1.5 rounded-full text-xs font-black uppercase tracking-wide bg-emerald-500/10 text-emerald-400 border border-emerald-500/25" id="result-badge">
+                                        Highly Affordable Path
+                                    </div>
+                                </div>
+                                <p class="text-xs text-slate-400 mt-3 leading-relaxed border-t border-slate-900 pt-3" id="calc-explanation">
+                                    By pairing the Michigan Achievement Scholarship with federal Pell grant allocations, your structural funding drops tuition to an exceptionally manageable rate.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Webinar Registration Form Panel -->
+            <div class="bg-gradient-to-br from-slate-900 to-slate-950 border border-slate-800 rounded-3xl p-6 sm:p-8 shadow-xl">
+                <div class="max-w-2xl mx-auto text-center mb-8">
+                    <h3 class="text-2xl font-extrabold" id="reg-webinar-header">Secure Your Webinar Seat</h3>
+                    <p class="text-sm text-slate-400 mt-2" id="reg-webinar-desc">Register immediately to receive the secure Zoom link and pre-packaged 1-page financial aid cheat sheet.</p>
+                </div>
+                
+                <form id="webinar-form" onsubmit="handleRegistration(event, 'webinar')" class="max-w-xl mx-auto space-y-4">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-bold text-slate-400 uppercase mb-1.5" id="lbl-sname">Student Name *</label>
+                            <input type="text" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-slate-200 outline-none focus:border-cyan-500">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-400 uppercase mb-1.5" id="lbl-pname">Parent Name *</label>
+                            <input type="text" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-slate-200 outline-none focus:border-cyan-500">
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-bold text-slate-400 uppercase mb-1.5" id="lbl-email">Email Address *</label>
+                            <input type="email" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-slate-200 outline-none focus:border-cyan-500">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-400 uppercase mb-1.5" id="lbl-phone">Phone / WhatsApp Number *</label>
+                            <input type="tel" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-slate-200 outline-none focus:border-cyan-500">
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="w-full py-4 bg-gradient-to-r from-cyan-500 to-cyan-600 hover:from-cyan-600 hover:to-cyan-700 text-slate-950 font-extrabold rounded-xl shadow-lg shadow-cyan-500/10 transition transform hover:-translate-y-0.5 tracking-wider uppercase text-sm mt-2">
+                        <i class="fa-solid fa-paper-plane mr-2"></i> <span id="btn-reg-webinar">Register For Webinar</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <!-- TAB CONTENT: SEMINAR -->
+        <div id="content-seminar" class="space-y-12 hidden">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                
+                <!-- Left: Flyer -->
+                <div class="lg:col-span-5 space-y-6">
+                    <div class="bg-slate-900 border border-slate-800 rounded-3xl p-4 shadow-xl">
+                        <h3 class="text-lg font-bold text-slate-200 mb-3 flex items-center gap-2" id="seminar-flyer-title">
+                            <i class="fa-regular fa-image text-amber-500"></i> Official Event Flyer
+                        </h3>
+                        
+                        <div class="relative rounded-2xl overflow-hidden shadow-2xl border border-slate-700 bg-slate-850 aspect-[4/5] flex items-center justify-center">
+                            <!-- High resolution generated flyer placeholder -->
+                            <img src="Gemini_Generated_Image_ksap2fksap2fksap.png" alt="Career Seminar Flyer" class="w-full h-full object-cover" onerror="handleImageError(this, 'career');" />
+                            
+                            <!-- Static/Fallback Graphic if image fails -->
+                            <div id="fallback-career" class="hidden absolute inset-0 bg-gradient-to-br from-slate-950 via-amber-950 to-slate-900 flex flex-col justify-between p-6">
+                                <div class="border-4 border-double border-cyan-500/30 p-4 rounded-xl flex-1 flex flex-col justify-between">
+                                    <div class="text-center">
+                                        <p class="text-cyan-400 font-bold tracking-widest text-sm uppercase">Joint In-Person Seminar</p>
+                                        <h4 class="text-2xl font-extrabold mt-2 text-white">CAREER ROADMAPS</h4>
+                                        <p class="text-xs text-amber-400 mt-1">First-Gen Mentorship Pipeline 2026</p>
+                                    </div>
+                                    <div class="flex justify-center my-6">
+                                        <i class="fa-solid fa-user-tie text-6xl text-cyan-400/80"></i>
+                                    </div>
+                                    <div class="space-y-2 text-center text-xs text-slate-400">
+                                        <p class="font-bold text-slate-200">Date: July 25, 2026 @ 4:00 PM</p>
+                                        <p>Round Table Career Mentorship & Chai Corner</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Information & Passport Game Simulator -->
+                <div class="lg:col-span-7 space-y-8">
+                    
+                    <!-- Quick Specs Panel -->
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                        <div class="bg-slate-900 border border-slate-800 p-4 rounded-2xl">
+                            <span class="text-xs text-slate-400 block mb-1" id="spec-date-2">Date</span>
+                            <span class="font-bold text-sm text-amber-400">Saturday, July 25</span>
+                        </div>
+                        <div class="bg-slate-900 border border-slate-800 p-4 rounded-2xl">
+                            <span class="text-xs text-slate-400 block mb-1" id="spec-time-2">Time</span>
+                            <span class="font-bold text-sm text-amber-400">4:00 - 6:30 PM EST</span>
+                        </div>
+                        <div class="bg-slate-900 border border-slate-800 p-4 rounded-2xl">
+                            <span class="text-xs text-slate-400 block mb-1" id="spec-loc-2">Location</span>
+                            <span class="font-bold text-sm text-cyan-400">Greater Lansing</span>
+                        </div>
+                        <div class="bg-slate-900 border border-slate-800 p-4 rounded-2xl">
+                            <span class="text-xs text-slate-400 block mb-1" id="spec-cost-2">Host</span>
+                            <span class="font-bold text-sm text-amber-400">SAGL & CRF</span>
+                        </div>
+                    </div>
+
+                    <!-- Passport Simulator Widget -->
+                    <div class="bg-slate-900 border border-slate-800 rounded-3xl p-6 relative overflow-hidden shadow-2xl">
+                        <div class="absolute top-0 right-0 bg-amber-500/10 text-amber-400 text-xs font-bold px-3 py-1 rounded-bl-xl border-l border-b border-amber-500/20 uppercase tracking-widest" id="passport-badge">
+                            Interactive Stamp Game
+                        </div>
+                        <h3 class="text-xl font-black text-slate-100 mb-2 flex items-center gap-2" id="passport-title">
+                            <i class="fa-solid fa-passport text-amber-400"></i> Interactive "Passport to Success" Card
+                        </h3>
+                        <p class="text-xs sm:text-sm text-slate-400 mb-6 leading-relaxed" id="passport-desc">
+                            Explore each professional round table track. Read the mentor profiles, answer a simple roadmap question, and secure your digital passport stamps to enter our live MSU Bookstore raffle!
+                        </p>
+                        
+                        <!-- Mini Stamp Progress indicator -->
+                        <div class="flex items-center gap-2 mb-6 p-4 bg-slate-950 rounded-2xl border border-slate-850">
+                            <span class="text-xs font-bold text-slate-400 uppercase tracking-wide mr-2" id="stamp-progress-label">Stamps Secured:</span>
+                            <div class="flex gap-2 flex-1 justify-around">
+                                <div id="indicator-med" class="w-8 h-8 rounded-full border border-slate-800 flex items-center justify-center text-xs font-bold text-slate-600 transition-all duration-300">
+                                    <i class="fa-solid fa-stethoscope"></i>
+                                </div>
+                                <div id="indicator-eng" class="w-8 h-8 rounded-full border border-slate-800 flex items-center justify-center text-xs font-bold text-slate-600 transition-all duration-300">
+                                    <i class="fa-solid fa-microchip"></i>
+                                </div>
+                                <div id="indicator-law" class="w-8 h-8 rounded-full border border-slate-800 flex items-center justify-center text-xs font-bold text-slate-600 transition-all duration-300">
+                                    <i class="fa-solid fa-scale-balanced"></i>
+                                </div>
+                                <div id="indicator-bus" class="w-8 h-8 rounded-full border border-slate-800 flex items-center justify-center text-xs font-bold text-slate-600 transition-all duration-300">
+                                    <i class="fa-solid fa-chart-line"></i>
+                                </div>
+                            </div>
+                            
+                            <!-- Submit Raffle Button (Visible when all 4 are gathered) -->
+                            <button id="btn-raffle" disabled onclick="openRaffleTicket()" class="px-3 py-1.5 bg-slate-850 text-slate-600 font-extrabold text-xs rounded-lg uppercase tracking-wide cursor-not-allowed border border-slate-800 transition-all duration-300">
+                                <span id="raffle-btn-lbl">Locked</span>
+                            </button>
+                        </div>
+
+                        <!-- 4 Interactive Career Table Cards -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <!-- Table 1: Medicine -->
+                            <div onclick="selectCareerCard('med')" class="p-4 bg-slate-950 border border-slate-850 rounded-2xl cursor-pointer hover:border-slate-750 transition-all group relative overflow-hidden" id="card-med">
+                                <div class="absolute top-2 right-2 text-slate-800 group-hover:text-amber-500/20 text-4xl font-black select-none pointer-events-none transition-all">01</div>
+                                <div class="flex items-center gap-3">
+                                    <div class="p-2.5 bg-rose-500/10 text-rose-400 rounded-xl border border-rose-500/20">
+                                        <i class="fa-solid fa-stethoscope text-lg"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-sm text-slate-200" id="med-title">Medicine & Clinical Health</h4>
+                                        <p class="text-[10px] text-slate-500 tracking-wider uppercase mt-0.5" id="med-sub">Table A</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Table 2: Engineering & IT -->
+                            <div onclick="selectCareerCard('eng')" class="p-4 bg-slate-950 border border-slate-850 rounded-2xl cursor-pointer hover:border-slate-750 transition-all group relative overflow-hidden" id="card-eng">
+                                <div class="absolute top-2 right-2 text-slate-800 group-hover:text-cyan-500/20 text-4xl font-black select-none pointer-events-none transition-all">02</div>
+                                <div class="flex items-center gap-3">
+                                    <div class="p-2.5 bg-cyan-500/10 text-cyan-400 rounded-xl border border-cyan-500/20">
+                                        <i class="fa-solid fa-microchip text-lg"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-sm text-slate-200" id="eng-title">Engineering & Computer Tech</h4>
+                                        <p class="text-[10px] text-slate-500 tracking-wider uppercase mt-0.5" id="eng-sub">Table B</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Table 3: Law & Public Policy -->
+                            <div onclick="selectCareerCard('law')" class="p-4 bg-slate-950 border border-slate-850 rounded-2xl cursor-pointer hover:border-slate-750 transition-all group relative overflow-hidden" id="card-law">
+                                <div class="absolute top-2 right-2 text-slate-800 group-hover:text-indigo-500/20 text-4xl font-black select-none pointer-events-none transition-all">03</div>
+                                <div class="flex items-center gap-3">
+                                    <div class="p-2.5 bg-indigo-500/10 text-indigo-400 rounded-xl border border-indigo-500/20">
+                                        <i class="fa-solid fa-scale-balanced text-lg"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-sm text-slate-200" id="law-title">Law, Advocacy & Policy</h4>
+                                        <p class="text-[10px] text-slate-500 tracking-wider uppercase mt-0.5" id="law-sub">Table C</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Table 4: Business & Corporate -->
+                            <div onclick="selectCareerCard('bus')" class="p-4 bg-slate-950 border border-slate-850 rounded-2xl cursor-pointer hover:border-slate-750 transition-all group relative overflow-hidden" id="card-bus">
+                                <div class="absolute top-2 right-2 text-slate-800 group-hover:text-emerald-500/20 text-4xl font-black select-none pointer-events-none transition-all">04</div>
+                                <div class="flex items-center gap-3">
+                                    <div class="p-2.5 bg-emerald-500/10 text-emerald-400 rounded-xl border border-emerald-500/20">
+                                        <i class="fa-solid fa-chart-line text-lg"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-sm text-slate-200" id="bus-title">Finance & Entrepreneurship</h4>
+                                        <p class="text-[10px] text-slate-500 tracking-wider uppercase mt-0.5" id="bus-sub">Table D</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Expanded Mentor Roadmaps & interactive questions -->
+                        <div id="mentorship-detail-pane" class="mt-6 p-5 bg-slate-950 border border-slate-850 rounded-2xl hidden">
+                            <div class="flex items-start justify-between">
+                                <div class="flex gap-3 items-center">
+                                    <div id="detail-icon-wrap" class="p-2.5 rounded-xl border">
+                                        <i id="detail-icon" class="fa-solid"></i>
+                                    </div>
+                                    <div>
+                                        <h4 id="detail-heading" class="font-black text-slate-100">Medicine & Healthcare Roadmap</h4>
+                                        <p id="detail-facilitator" class="text-xs text-slate-400">Led by local medical residents & physicians</p>
+                                    </div>
+                                </div>
+                                <button onclick="closeDetailPane()" class="text-slate-500 hover:text-slate-300 transition">
+                                    <i class="fa-solid fa-xmark text-lg"></i>
+                                </button>
+                            </div>
+
+                            <p id="detail-roadmap-desc" class="text-xs sm:text-sm text-slate-300 mt-4 leading-relaxed bg-slate-900/50 p-3.5 rounded-xl border border-slate-850">
+                                Learn the track: High school AP Bio/Chem -> 4-year pre-med bachelor degree -> Clinical volunteer metrics -> Standardized Medical School Entry Exams (MCAT).
+                            </p>
+
+                            <!-- Mini Challenge Box -->
+                            <div class="mt-4 p-4 bg-slate-900 border border-slate-800 rounded-xl space-y-3">
+                                <p id="challenge-question" class="text-xs font-bold text-amber-400 uppercase tracking-wide">Table Q: Does pre-med require a specific biological undergraduate major?</p>
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2" id="challenge-options">
+                                    <!-- Options injected dynamically by JS -->
+                                </div>
+                                <div id="feedback-message" class="hidden text-xs font-semibold p-2 rounded-lg text-center"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Seminar In-Person Registration Form -->
+            <div class="bg-gradient-to-br from-slate-900 to-slate-950 border border-slate-800 rounded-3xl p-6 sm:p-8 shadow-xl">
+                <div class="max-w-2xl mx-auto text-center mb-8">
+                    <h3 class="text-2xl font-extrabold" id="reg-seminar-header">Register for In-Person Seminar</h3>
+                    <p class="text-sm text-slate-400 mt-2" id="reg-seminar-desc">Reserve a dedicated table seat for your family. Includes catering, passport booklets, and direct access to mentors.</p>
+                </div>
+                
+                <form id="seminar-form" onsubmit="handleRegistration(event, 'seminar')" class="max-w-xl mx-auto space-y-4">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-bold text-slate-400 uppercase mb-1.5" id="lbl-sname-2">Student Name *</label>
+                            <input type="text" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-slate-200 outline-none focus:border-amber-500">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-400 uppercase mb-1.5" id="lbl-pname-2">Parent Name *</label>
+                            <input type="text" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-slate-200 outline-none focus:border-amber-500">
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-bold text-slate-400 uppercase mb-1.5" id="lbl-email-2">Email Address *</label>
+                            <input type="email" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-slate-200 outline-none focus:border-amber-500">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-400 uppercase mb-1.5" id="lbl-phone-2">Phone / WhatsApp Number *</label>
+                            <input type="tel" required class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm text-slate-200 outline-none focus:border-amber-500">
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="w-full py-4 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-slate-950 font-extrabold rounded-xl shadow-lg shadow-amber-500/10 transition transform hover:-translate-y-0.5 tracking-wider uppercase text-sm mt-2">
+                        <i class="fa-solid fa-users mr-2"></i> <span id="btn-reg-seminar">Book Workshop Seats</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <!-- FOOTER SECTION -->
+        <footer class="mt-16 pt-8 border-t border-slate-850 text-center space-y-4 pb-12">
+            <div class="flex justify-center items-center gap-6">
+                <div class="text-xs text-slate-400 font-bold uppercase tracking-wider flex items-center gap-2">
+                    <i class="fa-solid fa-building-columns text-cyan-400"></i> The Combined Research Foundation (CRF)
+                </div>
+                <div class="text-xs text-slate-400 font-bold uppercase tracking-wider flex items-center gap-2">
+                    <i class="fa-solid fa-handshake text-amber-400"></i> Sudanese Association of Greater Lansing (SAGL)
+                </div>
+            </div>
+            <p class="text-[11px] text-slate-500" id="footer-note">
+                CRF is a registered 501(c)(3) nonprofit public charity. All educational services and programming are offered free of charge to Lansing area families.
+            </p>
+        </footer>
+    </div>
+
+    <!-- NOTIFICATION & SUCCESS MODAL -->
+    <div id="modal-container" class="fixed inset-0 bg-slate-950/80 backdrop-blur-md hidden items-center justify-center z-50 p-4 transition-all duration-300">
+        <div class="bg-slate-900 border border-slate-800 rounded-3xl p-6 sm:p-8 max-w-md w-full shadow-2xl relative text-center">
+            <div id="modal-icon-wrap" class="w-16 h-16 rounded-full mx-auto flex items-center justify-center text-3xl mb-4 bg-emerald-500/10 text-emerald-400 border border-emerald-500/25">
+                <i class="fa-solid fa-circle-check"></i>
+            </div>
+            
+            <h3 id="modal-title" class="text-xl font-extrabold text-slate-100 mb-2">Registration Complete!</h3>
+            <p id="modal-body" class="text-sm text-slate-400 leading-relaxed mb-6">
+                Your registration has been securely processed. We have dispatched a confirmation receipt containing resource outlines to your email address.
+            </p>
+            
+            <!-- Custom Digital Ticket Card for Raffle -->
+            <div id="raffle-ticket-display" class="hidden border border-dashed border-amber-500/50 bg-slate-950 rounded-2xl p-4 mb-6 relative overflow-hidden">
+                <div class="absolute -left-3 top-1/2 -translate-y-1/2 w-6 h-6 bg-slate-900 rounded-full border border-slate-800"></div>
+                <div class="absolute -right-3 top-1/2 -translate-y-1/2 w-6 h-6 bg-slate-900 rounded-full border border-slate-800"></div>
+                <p class="text-[10px] text-amber-500 uppercase font-black tracking-widest">MSU Bookstore Raffle Entry Ticket</p>
+                <div class="text-3xl font-black text-slate-100 tracking-widest my-2" id="ticket-number-val">CRF-SAGL-7749</div>
+                <p class="text-[9px] text-slate-500" id="ticket-disclaimer">Keep this receipt safe. Bring a screenshot to the July 25 workshop.</p>
+            </div>
+
+            <button onclick="closeModal()" class="w-full py-3 bg-slate-850 hover:bg-slate-800 border border-slate-750 text-slate-200 font-bold rounded-xl transition uppercase tracking-wide text-xs">
+                <span id="modal-close-btn">Dismiss</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- TRANSLATION DATA STRUCTURE & LOGIC -->
+    <script>
+        const translations = {
+            en: {
+                ticker: "🌟 Joint Initiative by the Sudanese Association of Greater Lansing & The Combined Research Foundation (501c3)",
+                subtitle: "Youth Education & Career Pipeline 2026",
+                share: "Share Page",
+                heroBadge: "Summer Series 2026",
+                heroTitle: "Empowering the Next Generation of Lansing Youth",
+                heroDesc: "Join us for an intensive, two-part series designed to help students secure debt-free college financing and explore direct, guided roadmaps to high-impact professional careers like Medicine, Engineering, Law, and Finance.",
+                heroCard1Sub: "Part 1: Virtual",
+                heroCard1Title: "Scholarship Webinar (July 11)",
+                heroCard2Sub: "Part 2: In-Person",
+                heroCard2Title: "Career Mentorship (July 25)",
+                tabWebinar: "Webinar: College Funding",
+                tabSeminar: "Seminar: Career Roadmap",
+                webinarFlyerTitle: "Official Event Flyer",
+                seminarFlyerTitle: "Official Event Flyer",
+                vipBadge: "Personalized Guest Ticket",
+                customizeLabel: "Type your name to personalize your flyer:",
+                specDate: "Date",
+                specTime: "Time",
+                specLoc: "Location",
+                specCost: "Fee",
+                freeBadge: "100% Free",
+                widgetBadge: "Interactive Math Tool",
+                calcTitle: "College Cost & Funding Estimator",
+                calcDesc: "See how state-level aid structures, Pell grants, and local funding stack against baseline tuition rates to secure a near-zero net outcome.",
+                calcLblTier: "Select Institutional Path",
+                calcLblPell: "Estimated Federal Pell Grant Award",
+                calcLblOther: "Other Local & Private Grants",
+                calcMaxPell: "Max Pell: $7,395",
+                calcMasTitle: "Michigan Achievement Scholarship",
+                calcMasDesc: "Eligibility: Michigan resident high school graduate",
+                calcResTitle: "Estimated Net Out-Of-Pocket Cost",
+                calcResAffordable: "Highly Affordable Path",
+                calcExplanation: "By pairing the Michigan Achievement Scholarship with federal Pell grant allocations, your structural funding drops tuition to an exceptionally manageable rate.",
+                regWebinarHeader: "Secure Your Webinar Seat",
+                regWebinarDesc: "Register immediately to receive the secure Zoom link and pre-packaged 1-page financial aid cheat sheet.",
+                lblSname: "Student Name *",
+                lblPname: "Parent Name *",
+                lblEmail: "Email Address *",
+                lblPhone: "Phone / WhatsApp Number *",
+                btnRegWebinar: "Register For Webinar",
+                passportBadge: "Interactive Stamp Game",
+                passportTitle: "Interactive \"Passport to Success\" Card",
+                passportDesc: "Explore each professional round table track. Read the mentor profiles, answer a simple roadmap question, and secure your digital passport stamps to enter our live MSU Bookstore raffle!",
+                stampProgress: "Stamps Secured:",
+                raffleLocked: "Locked",
+                raffleUnlocked: "Claim Raffle Ticket",
+                medTitle: "Medicine & Clinical Health",
+                medSub: "Table A",
+                engTitle: "Engineering & Computer Tech",
+                engSub: "Table B",
+                lawTitle: "Law, Advocacy & Policy",
+                lawSub: "Table C",
+                busTitle: "Finance & Entrepreneurship",
+                busSub: "Table D",
+                regSeminarHeader: "Register for In-Person Seminar",
+                regSeminarDesc: "Reserve a dedicated table seat for your family. Includes catering, passport booklets, and direct access to mentors.",
+                btnRegSeminar: "Book Workshop Seats",
+                footerNote: "CRF is a registered 501(c)(3) nonprofit public charity. All educational services and programming are offered free of charge to Lansing area families.",
+                optionCC: "Community College (e.g. LCC) — $4,000 / Year",
+                optionUniv: "In-State Public University (e.g. MSU) — $15,000 / Year",
+                optionPrivate: "In-State Private College — $35,000 / Year",
+                dismiss: "Dismiss"
+            },
+            ar: {
+                ticker: "🌟 مبادرة مشتركة بين الجمعية السودانية بلانسينج الكبرى ومؤسسة الأبحاث المشتركة (501c3)",
+                subtitle: "مستقبل التعليم والمهن لشباب لانسينج 2026",
+                share: "مشاركة الصفحة",
+                heroBadge: "السلسلة الصيفية 2026",
+                heroTitle: "تمكين الجيل القادم من شباب الجالية بلانسينج",
+                heroDesc: "انضم إلينا في برنامج مكثف يتكون من جزئين، لمساعدة أبنائنا وبناتنا على تأمين التمويل الجامعي المجاني واستكشاف خرائط طريق دقيقة لمهن متميزة مثل الطب، الهندسة، القانون، والتجارة.",
+                heroCard1Sub: "الجزء الأول: افتراضي",
+                heroCard1Title: "ندوة التمويل الدراسي (11 يوليو)",
+                heroCard2Sub: "الجزء الثاني: حضوري",
+                heroCard2Title: "ملتقى الإرشاد المهني (25 يوليو)",
+                tabWebinar: "الندوة: تمويل الدراسة",
+                tabSeminar: "الملتقى: خرائط طريق المهن",
+                webinarFlyerTitle: "الملصق الرسمي للفعالية",
+                seminarFlyerTitle: "الملصق الرسمي للفعالية",
+                vipBadge: "تذكرة ضيف شخصية",
+                customizeLabel: "اكتب اسمك لتخصيص الملصق الخاص بك:",
+                specDate: "التاريخ",
+                specTime: "الوقت",
+                specLoc: "الموقع",
+                specCost: "الرسوم",
+                freeBadge: "مجاني 100%",
+                widgetBadge: "أداة حسابية تفاعلية",
+                calcTitle: "حاسبة تكاليف وفرص تمويل الكلية",
+                calcDesc: "اكتشف كيف تتراكم المنح الحكومية والولائية والمحلية لخفض الرسوم الدراسية الفعلية في ميشيغان إلى الصفر تقريبًا.",
+                calcLblTier: "اختر المسار الأكاديمي والجامعة",
+                calcLblPell: "قيمة منحة Pell الفيدرالية المتوقعة",
+                calcLblOther: "المنح المحلية والخاصة الأخرى",
+                calcMaxPell: "الحد الأقصى لمنحة بيل: $7,395",
+                calcMasTitle: "منحة ميشيغان للإنجاز الدراسي (MAS)",
+                calcMasDesc: "الأهلية: لخريجي المدارس الثانوية في ولاية ميشيغان",
+                calcResTitle: "التكاليف الفعلية المتبقية سنويًا",
+                calcResAffordable: "مسار تعليمي اقتصادي ومثالي",
+                calcExplanation: "عند دمج منحة ميشيغان للإنجاز مع مخصصات منحة Pell الفيدرالية، تنخفض الرسوم الدراسية الفعلية لتصبح ميسرة للغاية ويسهل تسديدها بالكامل.",
+                regWebinarHeader: "احجز مقعدك للندوة الآن",
+                regWebinarDesc: "سجل فوراً للحصول على رابط زووم الآمن بالإضافة إلى نسخة مجانية من دليل التمويل الجامعي المكون من صفحة واحدة.",
+                lblSname: "اسم الطالب *",
+                lblPname: "اسم ولي الأمر *",
+                lblEmail: "البريد الإلكتروني *",
+                lblPhone: "رقم الهاتف / الواتساب *",
+                btnRegWebinar: "سجل لحضور الندوة",
+                passportBadge: "لعبة الطوابع التفاعلية",
+                passportTitle: "جواز السفر التفاعلي نحو النجاح",
+                passportDesc: "استكشف طاولات المهن المختلفة، وتعرف على قصص نجاح موجهينا، وأجب عن التحدي الخاص بكل مهنة لجمع الطوابع الرقمية ودخول سحب مكتبة MSU المباشر!",
+                stampProgress: "الطوابع المكتسبة:",
+                raffleLocked: "مغلق",
+                raffleUnlocked: "اسحب تذكرة السحب الآن",
+                medTitle: "الطب ومجالات الرعاية الصحية",
+                medSub: "الطاولة أ",
+                engTitle: "الهندسة وتقنية المعلومات",
+                engSub: "الطاولة ب",
+                lawTitle: "القانون والعدالة والسياسات العامة",
+                lawSub: "الطاولة ج",
+                busTitle: "المالية والأعمال والريادة",
+                busSub: "الطاولة د",
+                regSeminarHeader: "سجل لحضور الملتقى الحضوري",
+                regSeminarDesc: "احجز مقعداً مخصصاً لعائلتك. يشمل اللقاء المأكولات والمشروبات، كتيبات السفر التعليمية، والتواصل المباشر مع الموجهين.",
+                btnRegSeminar: "احجز مقاعد ورشة العمل",
+                footerNote: "مؤسسة CRF هي منظمة خيرية عامة مسجلة بموجب المادة 501(c)(3). جميع الخدمات والبرامج التعليمية تقدم مجاناً بالكامل لجميع عائلات لانسينج الكبرى.",
+                optionCC: "كلية مجتمعية (مثال LCC) — $4,000 / سنوياً",
+                optionUniv: "جامعة حكومية بالولاية (مثال MSU) — $15,000 / سنوياً",
+                optionPrivate: "كلية خاصة داخل الولاية — $35,000 / سنوياً",
+                dismiss: "إغلاق"
+            }
+        };
+
+        let currentLang = 'en';
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'en' ? 'ar' : 'en';
+            document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
+            
+            // Set button text
+            document.getElementById('lang-btn-text').innerText = currentLang === 'en' ? 'العربية' : 'English';
+            
+            // Apply translations
+            const t = translations[currentLang];
+            document.getElementById('ticker-text').innerText = t.ticker;
+            document.getElementById('app-subtitle').innerText = t.subtitle;
+            document.getElementById('btn-share').querySelector('span') ? document.getElementById('btn-share').querySelector('span').innerText = t.share : document.getElementById('btn-share').innerText = t.share;
+            document.getElementById('hero-badge').innerText = t.heroBadge;
+            document.getElementById('hero-title').innerText = t.heroTitle;
+            document.getElementById('hero-desc').innerText = t.heroDesc;
+            document.getElementById('hero-card1-sub').innerText = t.heroCard1Sub;
+            document.getElementById('hero-card1-title').innerText = t.heroCard1Title;
+            document.getElementById('hero-card2-sub').innerText = t.heroCard2Sub;
+            document.getElementById('hero-card2-title').innerText = t.heroCard2Title;
+            
+            document.getElementById('tab-webinar-text').innerText = t.tabWebinar;
+            document.getElementById('tab-seminar-text').innerText = t.tabSeminar;
+            
+            document.getElementById('webinar-flyer-title').innerHTML = `<i class="fa-regular fa-image text-cyan-400"></i> ${t.webinarFlyerTitle}`;
+            document.getElementById('seminar-flyer-title').innerHTML = `<i class="fa-regular fa-image text-amber-500"></i> ${t.seminarFlyerTitle}`;
+            document.getElementById('vip-badge-label').innerText = t.vipBadge;
+            document.getElementById('customize-label').innerText = t.customizeLabel;
+            
+            // Stats
+            const specLabels = document.querySelectorAll('[id^="spec-date"]');
+            specLabels.forEach(el => el.innerText = t.specDate);
+            const specTimes = document.querySelectorAll('[id^="spec-time"]');
+            specTimes.forEach(el => el.innerText = t.specTime);
+            const specLocs = document.querySelectorAll('[id^="spec-loc"]');
+            specLocs.forEach(el => el.innerText = t.specLoc);
+            
+            document.getElementById('spec-cost').innerText = t.specCost;
+            document.getElementById('free-badge').innerText = t.freeBadge;
+            
+            // Estimator Calculator Text
+            document.getElementById('widget-badge').innerText = t.widgetBadge;
+            document.getElementById('calc-title').innerHTML = `<i class="fa-solid fa-calculator text-cyan-500"></i> ${t.calcTitle}`;
+            document.getElementById('calc-desc').innerText = t.calcDesc;
+            document.getElementById('calc-lbl-tier').innerText = t.calcLblTier;
+            document.getElementById('calc-lbl-pell').innerText = t.calcLblPell;
+            document.getElementById('calc-lbl-other').innerText = t.calcLblOther;
+            document.getElementById('max-pell-label').innerText = t.calcMaxPell;
+            document.getElementById('calc-mas-title').innerText = t.calcMasTitle;
+            document.getElementById('calc-mas-desc').innerText = t.calcMasDesc;
+            document.getElementById('calc-res-title').innerText = t.calcResTitle;
+            
+            // College Dropdown options
+            document.getElementById('cc-option').innerText = t.optionCC;
+            document.getElementById('univ-option').innerText = t.optionUniv;
+            document.getElementById('private-option').innerText = t.optionPrivate;
+            
+            // Webinar Reg Text
+            document.getElementById('reg-webinar-header').innerText = t.regWebinarHeader;
+            document.getElementById('reg-webinar-desc').innerText = t.regWebinarDesc;
+            document.getElementById('lbl-sname').innerText = t.lblSname;
+            document.getElementById('lbl-pname').innerText = t.lblPname;
+            document.getElementById('lbl-email').innerText = t.lblEmail;
+            document.getElementById('lbl-phone').innerText = t.lblPhone;
+            document.getElementById('btn-reg-webinar').innerText = t.btnRegWebinar;
+            
+            // Passport Interactive
+            document.getElementById('passport-badge').innerText = t.passportBadge;
+            document.getElementById('passport-title').innerHTML = `<i class="fa-solid fa-passport text-amber-400"></i> ${t.passportTitle}`;
+            document.getElementById('passport-desc').innerText = t.passportDesc;
+            document.getElementById('stamp-progress-label').innerText = t.stampProgress;
+            
+            document.getElementById('med-title').innerText = t.medTitle;
+            document.getElementById('med-sub').innerText = t.medSub;
+            document.getElementById('eng-title').innerText = t.engTitle;
+            document.getElementById('eng-sub').innerText = t.engSub;
+            document.getElementById('law-title').innerText = t.lawTitle;
+            document.getElementById('law-sub').innerText = t.lawSub;
+            document.getElementById('bus-title').innerText = t.busTitle;
+            document.getElementById('bus-sub').innerText = t.busSub;
+            
+            // Seminar Reg Text
+            document.getElementById('reg-seminar-header').innerText = t.regSeminarHeader;
+            document.getElementById('reg-seminar-desc').innerText = t.regSeminarDesc;
+            document.getElementById('lbl-sname-2').innerText = t.lblSname;
+            document.getElementById('lbl-pname-2').innerText = t.lblPname;
+            document.getElementById('lbl-email-2').innerText = t.lblEmail;
+            document.getElementById('lbl-phone-2').innerText = t.lblPhone;
+            document.getElementById('btn-reg-seminar').innerText = t.btnRegSeminar;
+            
+            document.getElementById('footer-note').innerText = t.footerNote;
+            document.getElementById('modal-close-btn').innerText = t.dismiss;
+            
+            // Recalculate to update language of indicator
+            calculateCollegeCosts();
+            
+            // Update active passport cards if open
+            if (activeCardId) {
+                renderDetailPane();
+            }
+        }
+    </script>
+
+    <!-- CORE INTERACTION JAVASCRIPT -->
+    <script>
+        // Tab Switcher
+        function switchTab(tab) {
+            const webinarTab = document.getElementById('tab-webinar');
+            const seminarTab = document.getElementById('tab-seminar');
+            const webinarContent = document.getElementById('content-webinar');
+            const seminarContent = document.getElementById('content-seminar');
+            
+            if (tab === 'webinar') {
+                webinarTab.className = "flex-1 py-4 text-center border-b-2 font-bold text-sm sm:text-base tracking-wide flex items-center justify-center gap-2 tab-transition border-cyan-500 text-cyan-400";
+                seminarTab.className = "flex-1 py-4 text-center border-b-2 font-bold text-sm sm:text-base tracking-wide flex items-center justify-center gap-2 tab-transition border-transparent text-slate-400 hover:text-slate-200";
+                webinarContent.classList.remove('hidden');
+                webinarContent.classList.add('block');
+                seminarContent.classList.remove('block');
+                seminarContent.classList.add('hidden');
+            } else {
+                seminarTab.className = "flex-1 py-4 text-center border-b-2 font-bold text-sm sm:text-base tracking-wide flex items-center justify-center gap-2 tab-transition border-amber-500 text-amber-400";
+                webinarTab.className = "flex-1 py-4 text-center border-b-2 font-bold text-sm sm:text-base tracking-wide flex items-center justify-center gap-2 tab-transition border-transparent text-slate-400 hover:text-slate-200";
+                seminarContent.classList.remove('hidden');
+                seminarContent.classList.add('block');
+                webinarContent.classList.remove('block');
+                webinarContent.classList.add('hidden');
+            }
+        }
+
+        // Live Flyer VIP Name overlay
+        function updateTicketName(val) {
+            const overlay = document.getElementById('vip-name-overlay');
+            if (val.trim() === '') {
+                overlay.innerText = currentLang === 'en' ? 'GUEST ATTENDEE' : 'تذكرة ضيف الكلية';
+            } else {
+                overlay.innerText = val.toUpperCase();
+            }
+        }
+
+        // Share Page Link Clipboard fallback
+        function copyShareLink() {
+            const dummy = document.createElement('input');
+            dummy.value = window.location.href;
+            document.body.appendChild(dummy);
+            dummy.select();
+            document.execCommand('copy');
+            document.body.removeChild(dummy);
+            
+            // Show custom success modal for copy action
+            const modal = document.getElementById('modal-container');
+            const title = document.getElementById('modal-title');
+            const body = document.getElementById('modal-body');
+            const iconWrap = document.getElementById('modal-icon-wrap');
+            const ticket = document.getElementById('raffle-ticket-display');
+            
+            ticket.classList.add('hidden');
+            iconWrap.className = "w-16 h-16 rounded-full mx-auto flex items-center justify-center text-3xl mb-4 bg-cyan-500/10 text-cyan-400 border border-cyan-500/25";
+            iconWrap.innerHTML = `<i class="fa-solid fa-copy"></i>`;
+            
+            title.innerText = currentLang === 'en' ? 'Link Copied!' : 'تم نسخ الرابط!';
+            body.innerText = currentLang === 'en' 
+                ? 'The web application portal URL has been copied to your clipboard. Send it directly across your WhatsApp networks.' 
+                : 'تم نسخ رابط البوابة بنجاح. شاركه مباشرة عبر مجموعات واتساب الخاصة بك لدعوة العائلات.';
+            
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        // College Funding Cost Calculation Logic
+        function calculateCollegeCosts() {
+            const tuition = parseFloat(document.getElementById('college-tier').value);
+            const pell = parseFloat(document.getElementById('pell-slider').value);
+            const masToggle = document.getElementById('mas-toggle').checked;
+            const other = parseFloat(document.getElementById('other-slider').value);
+            
+            // Update labels
+            document.getElementById('pell-val').innerText = `$${pell.toLocaleString()}`;
+            document.getElementById('other-val').innerText = `$${other.toLocaleString()}`;
+            
+            // State scholarship is $2,750 for Community College, or $5,500 for Public Universities
+            let masAmount = 0;
+            if (masToggle) {
+                if (tuition <= 4000) {
+                    masAmount = 2750; // Community College max allocation
+                } else if (tuition <= 15000) {
+                    masAmount = 5500; // State university max allocation
+                } else {
+                    masAmount = 4000; // Private college standard state aid
+                }
+            }
+            
+            const totalAid = pell + masAmount + other;
+            let netCost = tuition - totalAid;
+            if (netCost < 0) netCost = 0; // Cost can't go negative on out-of-pocket tuition estimate
+            
+            // Render cost output display
+            const display = document.getElementById('net-cost-display');
+            display.innerText = `$${Math.round(netCost).toLocaleString()} / Year`;
+            
+            // Style the feedback box dynamically based on calculated savings
+            const rBox = document.getElementById('result-box');
+            const badge = document.getElementById('result-badge');
+            const explanation = document.getElementById('calc-explanation');
+            
+            if (netCost === 0) {
+                rBox.className = "p-5 rounded-2xl border-2 transition-all duration-300 bg-slate-950 border-emerald-500 shadow-emerald-500/10 shadow-lg";
+                badge.className = "px-3 py-1 rounded-full text-xs font-black uppercase tracking-wide bg-emerald-500/10 text-emerald-400 border border-emerald-500/25";
+                badge.innerText = currentLang === 'en' ? 'Fully Covered / Debt-Free' : 'مغطى بالكامل / مجاني';
+                explanation.innerText = currentLang === 'en' 
+                    ? "Exceptional scenario! Your combined federal grants and State of Michigan allocations cover your institutional tuition rate entirely."
+                    : "رائع! إجمالي قيمة الدعم الفيدرالي الفيدرالي ومنحة ميشيغان تغطي الرسوم الدراسية بالكامل ليدرس طفلك دون أي ديون أسرية.";
+            } else if (netCost <= 5000) {
+                rBox.className = "p-5 rounded-2xl border-2 transition-all duration-300 bg-slate-950 border-emerald-500/30 shadow-lg";
+                badge.className = "px-3 py-1 rounded-full text-xs font-black uppercase tracking-wide bg-emerald-500/10 text-emerald-400 border border-emerald-500/25";
+                badge.innerText = currentLang === 'en' ? 'Highly Affordable Path' : 'مسار اقتصادي ممتاز';
+                explanation.innerText = currentLang === 'en'
+                    ? "By pairing state support and federal allocations, your remaining out-of-pocket costs are minor and easily offset by part-time work study."
+                    : "بتوفير الدعم الحكومي والولائي، تصبح المبالغ المتبقية ميسرة للغاية ويمكن تسديدها بسهولة من خلال العمل الجزئي المعتمد بالجامعة.";
+            } else {
+                rBox.className = "p-5 rounded-2xl border-2 transition-all duration-300 bg-slate-950 border-amber-500/20 shadow-lg";
+                badge.className = "px-3 py-1 rounded-full text-xs font-black uppercase tracking-wide bg-amber-500/10 text-amber-400 border border-amber-500/25";
+                badge.innerText = currentLang === 'en' ? 'Requires Strategic Planning' : 'يتطلب خطة مالية مسبقة';
+                explanation.innerText = currentLang === 'en'
+                    ? "Due to high baseline tuition rates, we advise scheduling a dedicated advisory sync at our July 25th tables to review institutional aid strategies."
+                    : "نظراً لارتفاع الرسوم الأساسية، نقترح التنسيق للحضور المباشر يوم 25 يوليو لمناقشة طرق تأمين المنح الإضافية مع الخبراء.";
+            }
+        }
+
+        // Initialize cost calculations
+        calculateCollegeCosts();
+    </script>
+
+    <!-- PASSPORT STAMP SIMULATOR LOGIC -->
+    <script>
+        let securedStamps = {
+            med: false,
+            eng: false,
+            law: false,
+            bus: false
+        };
+
+        const roadmapData = {
+            med: {
+                titleEn: "Medicine & Health",
+                titleAr: "مسار الطب ومستقبل الرعاية الصحية",
+                facEn: "Led by local internal medicine residents & clinic advisors",
+                facAr: "بقيادة أطباء ممارسين وموجهين أكاديميين من أبناء الجالية",
+                descEn: "Roadmap: Rigorous STEM courses in High School -> Keep your Undergraduate GPA > 3.6 -> Secure clinical hours via volunteering -> Prepare for standard Medical School Entrance Tests (MCAT).",
+                descAr: "خريطة الطريق: التركيز على العلوم والأحياء بالثانوية -> الحصول على معدل بكالوريوس أعلى من 3.6 -> جمع ساعات التدريب الإكلينيكي عبر التطوع -> اجتياز اختبار MCAT المعياري للقبول بالطب.",
+                qEn: "Can students apply directly to professional medical schools immediately after high school graduation in the US?",
+                qAr: "هل يمكن لخريجي الثانوية العامة التقديم مباشرة لكليات الطب البشري في النظام الأمريكي؟",
+                options: [
+                    { textEn: "No, they must secure a 4-year undergraduate bachelor degree first.", textAr: "لا، يجب الحصول على درجة البكالوريوس لمدة 4 سنوات أولاً.", isCorrect: true },
+                    { textEn: "Yes, they can enter medical school immediately.", textAr: "نعم، يمكنهم الالتحاق مباشرة مثل النظام في السودان.", isCorrect: false }
+                ]
+            },
+            eng: {
+                titleEn: "Engineering & Tech",
+                titleAr: "مسار الهندسة وتقنية المعلومات والذكاء الاصطناعي",
+                facEn: "Led by software architects & enterprise civil engineers",
+                facAr: "بقيادة مهندسي برمجيات وبنية تحتية من كبرى الشركات المحلية",
+                descEn: "Roadmap: Advanced Math & AP Computer Science in High School -> Pursue CS/Engineering Degree -> Build a robust GitHub Portfolio -> Secure technical internship placements before year 3.",
+                descAr: "خريطة الطريق: الرياضيات المتقدمة وعلوم الحاسوب بالثانوية -> دراسة هندسة الحاسوب أو البرمجيات بالكلية -> بناء معرض مشاريع GitHub متميز -> الفوز بفرصة تدريب صيفي قبل السنة الأخيرة.",
+                qEn: "What metric is most valuable for starting careers in software engineering alongside a solid GPA?",
+                qAr: "ما هو العنصر الأكثر قيمة للحصول على وظيفة هندسية ممتازة بجانب المعدل الدراسي المرتفع؟",
+                options: [
+                    { textEn: "Real-world projects, summer internships & technical portfolio building.", textAr: "المشاريع العملية، فترات التدريب الصيفي، وبناء ملف برمجيات ملموس.", isCorrect: true },
+                    { textEn: "Perfect memorization of standard dictionary textbooks.", textAr: "حفظ وتسميع الكتب الأكاديمية النظرية بالكامل.", isCorrect: false }
+                ]
+            },
+            law: {
+                titleEn: "Law & Policy",
+                titleAr: "مسار القانون والعدالة والسياسات العامة",
+                facEn: "Led by regional practicing corporate attorneys",
+                facAr: "بقيادة محامين ومستشارين قانونيين في ولاية ميشيغان",
+                descEn: "Roadmap: Honors English & History -> Complete your bachelor degree -> Refine your argumentative and writing prowess -> Prepare for standard Law School Admissions Test (LSAT).",
+                descAr: "خريطة الطريق: التركيز على الكتابة والتاريخ بالثانوية -> الحصول على درجة البكالوريوس في أي تخصص متاح -> صقل مهارات الحوار والكتابة والبحث -> التحضير لاختبار LSAT المعياري.",
+                qEn: "Is there a required pre-law major to qualify for law school admissions?",
+                qAr: "هل تشترط كليات القانون تخصصًا محددًا في مرحلة البكالوريوس كشرط للقبول؟",
+                options: [
+                    { textEn: "No, law schools accept any major if GPA and LSAT scores are competitive.", textAr: "لا، تقبل كليات القانون أي تخصص شريطة أن يكون المعدل واختبار LSAT تنافسيين.", isCorrect: true },
+                    { textEn: "Yes, they only accept Political Science degrees.", textAr: "نعم، تقبل كليات القانون تخصص العلوم السياسية فقط.", isCorrect: false }
+                ]
+            },
+            bus: {
+                titleEn: "Finance & Business",
+                titleAr: "مسار العلوم المالية والأعمال والريادة",
+                facEn: "Led by institutional accountants & marketing consultants",
+                facAr: "بقيادة مستشاري تمويل ومحاسبين ماليين وأصحاب أعمال",
+                descEn: "Roadmap: Microeconomics & Calculus in High School -> Corporate Business Degree -> Specialize in Analytics or Operations -> Build dynamic professional networks early.",
+                descAr: "خريطة الطريق: الاقتصاد والإحصاء بالثانوية -> دراسة إدارة الأعمال أو المحاسبة بالجامعة -> التخصص في سلاسل الإمداد أو التمويل -> بناء شبكة علاقات مهنية قوية منذ وقت مبكر.",
+                qEn: "Which skill is most critical for long-term business success?",
+                qAr: "أي من هذه المهارات تعتبر الأهم لضمان النجاح المهني في قطاع الأعمال والشركات؟",
+                options: [
+                    { textEn: "High interpersonal communication, negotiation, and strategic analytics.", textAr: "القدرة العالية على التواصل والتفاوض والتحليل الاستراتيجي الفعال.", isCorrect: true },
+                    { textEn: "Working in isolation without team collaboration.", textAr: "العمل الفردي المعزول تماماً دون التواصل مع فرق العمل الأخرى.", isCorrect: false }
+                ]
+            }
+        };
+
+        let activeCardId = null;
+
+        function selectCareerCard(cardId) {
+            activeCardId = cardId;
+            renderDetailPane();
+            
+            // Auto scroll slightly on mobile
+            document.getElementById('mentorship-detail-pane').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        function renderDetailPane() {
+            if (!activeCardId) return;
+            
+            const cardData = roadmapData[activeCardId];
+            const pane = document.getElementById('mentorship-detail-pane');
+            pane.classList.remove('hidden');
+            
+            // Set Color Themes Dynamically based on career chosen
+            const iconWrap = document.getElementById('detail-icon-wrap');
+            const icon = document.getElementById('detail-icon');
+            
+            if (activeCardId === 'med') {
+                iconWrap.className = "p-2.5 rounded-xl border border-rose-500/20 bg-rose-500/10 text-rose-400";
+                icon.className = "fa-solid fa-stethoscope text-lg";
+            } else if (activeCardId === 'eng') {
+                iconWrap.className = "p-2.5 rounded-xl border border-cyan-500/20 bg-cyan-500/10 text-cyan-400";
+                icon.className = "fa-solid fa-microchip text-lg";
+            } else if (activeCardId === 'law') {
+                iconWrap.className = "p-2.5 rounded-xl border border-indigo-500/20 bg-indigo-500/10 text-indigo-400";
+                icon.className = "fa-solid fa-scale-balanced text-lg";
+            } else {
+                iconWrap.className = "p-2.5 rounded-xl border border-emerald-500/20 bg-emerald-500/10 text-emerald-400";
+                icon.className = "fa-solid fa-chart-line text-lg";
+            }
+
+            // Translation support for headers
+            document.getElementById('detail-heading').innerText = currentLang === 'en' ? cardData.titleEn + " Roadmap" : cardData.titleAr;
+            document.getElementById('detail-facilitator').innerText = currentLang === 'en' ? cardData.facEn : cardData.facAr;
+            document.getElementById('detail-roadmap-desc').innerText = currentLang === 'en' ? cardData.descEn : cardData.descAr;
+            document.getElementById('challenge-question').innerText = currentLang === 'en' ? "Table Q: " + cardData.qEn : "سؤال الطاولة: " + cardData.qAr;
+            
+            // Clear and inject options
+            const optContainer = document.getElementById('challenge-options');
+            optContainer.innerHTML = '';
+            
+            cardData.options.forEach((opt, index) => {
+                const btn = document.createElement('button');
+                btn.type = "button";
+                btn.onclick = () => submitChallengeAnswer(opt.isCorrect);
+                
+                const btnText = currentLang === 'en' ? opt.textEn : opt.textAr;
+                btn.className = "w-full text-left p-3 rounded-xl border border-slate-800 bg-slate-950 hover:bg-slate-900 hover:border-slate-700 transition text-xs font-semibold text-slate-300";
+                btn.innerText = btnText;
+                if (currentLang === 'ar') btn.style.textAlign = 'right';
+                optContainer.appendChild(btn);
+            });
+
+            // Hide feedback panel
+            const feedback = document.getElementById('feedback-message');
+            feedback.className = "hidden text-xs font-semibold p-2 rounded-lg text-center";
+            feedback.innerText = '';
+        }
+
+        function closeDetailPane() {
+            document.getElementById('mentorship-detail-pane').classList.add('hidden');
+            activeCardId = null;
+        }
+
+        function submitChallengeAnswer(isCorrect) {
+            const feedback = document.getElementById('feedback-message');
+            feedback.classList.remove('hidden');
+            
+            if (isCorrect) {
+                feedback.className = "text-xs font-bold p-3 rounded-xl text-center bg-emerald-500/15 text-emerald-400 border border-emerald-500/20";
+                feedback.innerText = currentLang === 'en' 
+                    ? "✨ Correct! Stamp Captured. You have successfully unlocked this career passport track."
+                    : "✨ إجابة صحيحة ومتميزة! لقد حصلت على الطابع الخاص بهذا التخصص بنجاح.";
+                
+                // Track progress
+                securedStamps[activeCardId] = true;
+                updateStampUI();
+            } else {
+                feedback.className = "text-xs font-bold p-3 rounded-xl text-center bg-rose-500/15 text-rose-400 border border-rose-500/20";
+                feedback.innerText = currentLang === 'en' 
+                    ? "❌ Incorrect. Review the roadmap description above and try again."
+                    : "❌ إجابة غير دقيقة. راجع مسار الدراسة المذكور أعلاه وحاول مجدداً.";
+            }
+        }
+
+        function updateStampUI() {
+            const medInd = document.getElementById('indicator-med');
+            const engInd = document.getElementById('indicator-eng');
+            const lawInd = document.getElementById('indicator-law');
+            const busInd = document.getElementById('indicator-bus');
+            const raffleBtn = document.getElementById('btn-raffle');
+            
+            if (securedStamps.med) medInd.className = "w-8 h-8 rounded-full border border-rose-500 bg-rose-500/10 text-rose-400 flex items-center justify-center text-xs font-bold shadow-lg shadow-rose-500/10";
+            if (securedStamps.eng) engInd.className = "w-8 h-8 rounded-full border border-cyan-500 bg-cyan-500/10 text-cyan-400 flex items-center justify-center text-xs font-bold shadow-lg shadow-cyan-500/10";
+            if (securedStamps.law) lawInd.className = "w-8 h-8 rounded-full border border-indigo-500 bg-indigo-500/10 text-indigo-400 flex items-center justify-center text-xs font-bold shadow-lg shadow-indigo-500/10";
+            if (securedStamps.bus) busInd.className = "w-8 h-8 rounded-full border border-emerald-500 bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-xs font-bold shadow-lg shadow-emerald-500/10";
+            
+            // Check if all are captured
+            if (securedStamps.med && securedStamps.eng && securedStamps.law && securedStamps.bus) {
+                raffleBtn.disabled = false;
+                raffleBtn.className = "px-3.5 py-1.5 bg-gradient-to-r from-amber-500 to-amber-600 text-slate-950 font-black text-xs rounded-lg uppercase tracking-wide cursor-pointer shadow-lg shadow-amber-500/20 transition-all duration-300";
+                raffleBtn.querySelector('span') ? raffleBtn.querySelector('span').innerText = translations[currentLang].raffleUnlocked : raffleBtn.innerText = translations[currentLang].raffleUnlocked;
+            }
+        }
+
+        function openRaffleTicket() {
+            // Generate a lucky numbers
+            const randomId = Math.floor(1000 + Math.random() * 9000);
+            
+            const modal = document.getElementById('modal-container');
+            const title = document.getElementById('modal-title');
+            const body = document.getElementById('modal-body');
+            const iconWrap = document.getElementById('modal-icon-wrap');
+            const ticket = document.getElementById('raffle-ticket-display');
+            
+            ticket.classList.remove('hidden');
+            document.getElementById('ticket-number-val').innerText = `CRF-SAGL-${randomId}`;
+            
+            iconWrap.className = "w-16 h-16 rounded-full mx-auto flex items-center justify-center text-3xl mb-4 bg-amber-500/10 text-amber-400 border border-amber-500/25";
+            iconWrap.innerHTML = `<i class="fa-solid fa-ticket-simple"></i>`;
+            
+            title.innerText = currentLang === 'en' ? 'Passport Verified!' : 'اكتمل جواز السفر!';
+            body.innerText = currentLang === 'en' 
+                ? 'Excellent work exploring all academic stations. Your digital credential is unlocked below. Bring a screenshot to our July 25 workshop for a live MSU Bookstore reward entry.' 
+                : 'عمل رائع في استكشاف جميع محطات المهن المباشرة. تذكرة السحب الخاصة بك جاهزة بالأسفل، احفظ صورة منها لتقديمها يوم الملتقى 25 يوليو لربح كوبون مكتبة MSU.';
+            
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+    </script>
+
+    <!-- REGISTRATION FORM SUBMISSION PROCESSOR -->
+    <script>
+        function handleRegistration(event, type) {
+            event.preventDefault();
+            
+            const modal = document.getElementById('modal-container');
+            const title = document.getElementById('modal-title');
+            const body = document.getElementById('modal-body');
+            const iconWrap = document.getElementById('modal-icon-wrap');
+            const ticket = document.getElementById('raffle-ticket-display');
+            
+            // Clean dynamic state
+            ticket.classList.add('hidden');
+            iconWrap.className = "w-16 h-16 rounded-full mx-auto flex items-center justify-center text-3xl mb-4 bg-emerald-500/10 text-emerald-400 border border-emerald-500/25";
+            iconWrap.innerHTML = `<i class="fa-solid fa-circle-check"></i>`;
+            
+            if (type === 'webinar') {
+                title.innerText = currentLang === 'en' ? 'Webinar Seats Booked!' : 'تم حجز مقاعد الندوة!';
+                body.innerText = currentLang === 'en'
+                    ? "Your online reservation is secured. We have sent the secure Zoom link and the 1-Page College Funding Cheat Sheet to your email address."
+                    : "تم تأكيد تسجيلك في الندوة بنجاح. تم إرسال رابط زووم الآمن بالإضافة إلى دليل التمويل الجامعي PDF إلى بريدك الإلكتروني المدخل.";
+            } else {
+                title.innerText = currentLang === 'en' ? 'Workshop Seats Secured!' : 'تم تأكيد حجز مقاعد الملتقى!';
+                body.innerText = currentLang === 'en'
+                    ? "Welcome to the July 25th Interactive Seminar. Your family's table reservation has been entered. We look forward to meeting you at our Lansing venue at 4:00 PM Sharp."
+                    : "أهلاً ومرحباً بكم في الملتقى الحضوري يوم 25 يوليو. تم تأكيد حجز مقاعد عائلتكم لطاولات المهن، ونتطلع للقائكم في قاعة لانسينج تمام الساعة 4:00 مساءً.";
+            }
+            
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            
+            // Reset relevant form
+            document.getElementById(`${type}-form`).reset();
+        }
+
+        function closeModal() {
+            document.getElementById('modal-container').classList.add('hidden');
+            document.getElementById('modal-container').classList.remove('flex');
+        }
+    </script>
+</body>
+</html>
